@@ -1,0 +1,367 @@
+Arms{
+    1. Bicep Curls
+Equipment: Dumbbells
+
+Instructions: Stand with feet shoulder-width apart, holding a dumbbell in each hand with arms fully extended. Curl the weights towards your shoulders while keeping your elbows stationary. Lower the weights back to the starting position. Repeat for 12-15 reps.
+
+2. Tricep Dips
+Equipment: Chair or bench
+
+Instructions: Sit on the edge of the chair, place your hands next to your hips, and extend your legs out in front of you. Lift your body off the chair and lower it by bending your elbows to a 90-degree angle. Push yourself back up to the starting position. Repeat for 10-12 reps.
+
+3. Shoulder Press
+Equipment: Dumbbells
+
+Instructions: Stand with feet shoulder-width apart, holding a dumbbell in each hand at shoulder height. Press the weights overhead until your arms are fully extended. Lower the weights back to shoulder height. Repeat for 10-12 reps.
+
+4. Hammer Curls
+Equipment: Dumbbells
+
+Instructions: Stand with feet shoulder-width apart, holding a dumbbell in each hand with palms facing your body. Curl the weights towards your shoulders while keeping your elbows stationary. Lower the weights back to the starting position. Repeat for 12-15 reps.
+
+5. Lateral Raises
+Equipment: Dumbbells
+
+Instructions: Stand with feet shoulder-width apart, holding a dumbbell in each hand at your sides. Raise your arms out to the sides until they are level with your shoulders. Lower the weights back to the starting position. Repeat for 12-15 reps.
+
+6. Overhead Tricep Extension
+Equipment: Dumbbell
+
+Instructions: Stand with feet shoulder-width apart, holding one dumbbell with both hands overhead. Keeping your upper arms close to your ears, lower the dumbbell behind your head by bending your elbows. Extend your arms back to the starting position. Repeat for 12-15 reps.
+
+7. Push-Ups
+Equipment: None
+
+Instructions: Start in a plank position with your hands slightly wider than shoulder-width apart. Lower your body until your chest nearly touches the floor, then push yourself back up to the starting position. Keep your body in a straight line throughout the movement. Repeat for 10-15 reps.
+
+8. Concentration Curls
+Equipment: Dumbbell
+
+Instructions: Sit on a bench with your legs spread and feet flat on the floor. Hold a dumbbell in one hand, rest your elbow on the inside of your thigh, and curl the weight towards your shoulder. Lower the weight back to the starting position. Repeat for 12-15 reps, then switch arms.
+
+9. Front Raises
+Equipment: Dumbbells
+
+Instructions: Stand with feet shoulder-width apart, holding a dumbbell in each hand in front of your thighs with palms facing your body. Raise one arm in front of you until it is level with your shoulder. Lower it back to the starting position and repeat with the other arm. Continue alternating arms for 12-15 reps each.
+
+10. Close-Grip Bench Press
+Equipment: Barbell
+
+Instructions: Lie on a bench with your feet flat on the floor. Grip the barbell with your hands shoulder-width apart and lift it off the rack. Lower the barbell to your chest, then press it back up to the starting position. Repeat for 10-12 reps.
+}
+
+*********************************************************
+shoulders {
+    1. Shoulder Press
+Equipment: Dumbbells
+
+Instructions: Stand with feet shoulder-width apart, holding dumbbells at shoulder height. Press the weights overhead until your arms are fully extended. Lower the weights back to shoulder height. Repeat for 10-12 reps.
+
+2. Lateral Raises
+Equipment: Dumbbells
+
+Instructions: Stand with feet shoulder-width apart, holding a dumbbell in each hand at your sides. Raise your arms out to the sides until they are level with your shoulders. Lower the weights back to the starting position. Repeat for 12-15 reps.
+
+3. Front Raises
+Equipment: Dumbbells
+
+Instructions: Stand with feet shoulder-width apart, holding a dumbbell in each hand in front of your thighs with palms facing your body. Raise one arm in front of you until it is level with your shoulder. Lower it back to the starting position and repeat with the other arm. Continue alternating arms for 12-15 reps each.
+
+4. Arnold Press
+Equipment: Dumbbells
+
+Instructions: Start with dumbbells at shoulder height, palms facing your body. Rotate your wrists outward as you press the weights overhead. Reverse the motion to lower the weights back to the starting position. Repeat for 10-12 reps.
+
+5. Rear Delt Flyes
+Equipment: Dumbbells
+
+Instructions: Bend at the hips with a slight bend in your knees, holding dumbbells with palms facing each other. Raise your arms out to the sides until they are level with your shoulders, squeezing your shoulder blades together. Lower the weights back to the starting position. Repeat for 12-15 reps.
+
+6. Upright Rows
+Equipment: Barbell or Dumbbells
+
+Instructions: Stand with feet shoulder-width apart, holding a barbell or dumbbells in front of your thighs. Lift the weights straight up to your chest, keeping them close to your body and leading with your elbows. Lower the weights back to the starting position. Repeat for 10-12 reps.
+
+7. Face Pulls
+Equipment: Resistance Band or Cable Machine
+
+Instructions: Attach a resistance band or cable to a high anchor point. Pull the handles towards your face, keeping your elbows high and squeezing your shoulder blades together. Return to the starting position. Repeat for 12-15 reps.
+
+8. Shrugs
+Equipment: Dumbbells or Barbell
+
+Instructions: Stand with feet shoulder-width apart, holding dumbbells or a barbell at your sides. Lift your shoulders as high as possible towards your ears. Lower them back to the starting position. Repeat for 12-15 reps.
+
+9. Overhead Shoulder Press (Machine)
+Equipment: Shoulder Press Machine
+
+Instructions: Adjust the seat and weights on the machine. Sit with your back against the pad and grip the handles. Press the handles overhead until your arms are fully extended. Lower them back to the starting position. Repeat for 10-12 reps.
+
+10. Landmine Press
+Equipment: Landmine Attachment or Barbell
+
+Instructions: Place one end of the barbell in a landmine attachment or secure it in a corner. Hold the other end with one hand at shoulder height. Press the barbell overhead, extending your arm. Lower it back to the starting position. Repeat for 10-12 reps per arm.
+}
+
+**********************************************************************
+chest {
+    1. Bench Press
+Equipment: Barbell
+
+Instructions: Lie on a flat bench with your feet flat on the floor. Grip the barbell slightly wider than shoulder-width apart. Lower the barbell to your chest, then press it back up to the starting position. Repeat for 10-12 reps.
+
+2. Incline Bench Press
+Equipment: Barbell
+
+Instructions: Set the bench to a 30-45 degree incline. Lie back and grip the barbell slightly wider than shoulder-width apart. Lower the barbell to your upper chest, then press it back up. Repeat for 10-12 reps.
+
+3. Dumbbell Flyes
+Equipment: Dumbbells
+
+Instructions: Lie on a flat bench with a dumbbell in each hand, arms extended above your chest. Lower the dumbbells out to the sides in a wide arc, keeping a slight bend in your elbows. Bring the weights back together over your chest. Repeat for 12-15 reps.
+
+4. Push-Ups
+Equipment: None
+
+Instructions: Start in a plank position with hands slightly wider than shoulder-width apart. Lower your body until your chest nearly touches the floor, then push back up. Keep your body in a straight line throughout. Repeat for 10-15 reps.
+
+5. Incline Dumbbell Press
+Equipment: Dumbbells
+
+Instructions: Set the bench to a 30-45 degree incline. Lie back with dumbbells in each hand at shoulder level. Press the weights overhead until arms are fully extended, then lower back to the starting position. Repeat for 10-12 reps.
+
+6. Decline Bench Press
+Equipment: Barbell
+
+Instructions: Set the bench to a decline. Lie back and grip the barbell slightly wider than shoulder-width apart. Lower the barbell to your lower chest, then press it back up. Repeat for 10-12 reps.
+
+7. Cable Crossovers
+Equipment: Cable Machine
+
+Instructions: Set the cables to the highest position. Stand in the center and pull the cables down and together in front of you with a slight bend in your elbows. Slowly return to the starting position. Repeat for 12-15 reps.
+
+8. Chest Dips
+Equipment: Dip Bars
+
+Instructions: Grip the dip bars and lift yourself up. Lean forward slightly as you lower your body by bending your elbows. Push yourself back up to the starting position. Repeat for 10-12 reps.
+
+9. Pec Deck Machine
+Equipment: Pec Deck Machine
+
+Instructions: Sit on the pec deck machine and grip the handles. Press the handles together until they meet in front of your chest, then slowly return to the starting position. Repeat for 12-15 reps.
+
+10. Svend Press
+Equipment: Weight Plate
+
+Instructions: Stand with feet shoulder-width apart, holding a weight plate with both hands in front of your chest. Push the plate straight out until your arms are fully extended, then bring it back to your chest. Repeat for 12-15 reps.
+}
+*****************************************************************
+abs{
+    1. Crunches
+Equipment: None
+
+Instructions: Lie on your back with your knees bent and feet flat on the floor. Place your hands behind your head. Lift your upper body towards your knees, exhaling as you crunch. Lower back down. Repeat for 15-20 reps.
+
+2. Plank
+Equipment: None
+
+Instructions: Start in a forearm plank position with your body in a straight line from head to heels. Hold this position for 30-60 seconds, keeping your core tight and engaged.
+
+3. Russian Twists
+Equipment: Medicine Ball or Dumbbell
+
+Instructions: Sit on the floor with your knees bent and feet lifted off the ground. Hold a medicine ball or dumbbell with both hands. Lean back slightly and twist your torso to each side, tapping the weight on the floor. Repeat for 20 twists (10 each side).
+
+4. Leg Raises
+Equipment: None
+
+Instructions: Lie on your back with your legs straight and hands under your hips. Lift your legs up towards the ceiling while keeping them straight. Lower them back down without touching the floor. Repeat for 12-15 reps.
+
+5. Bicycle Crunches
+Equipment: None
+
+Instructions: Lie on your back with your knees bent and hands behind your head. Lift your shoulder blades off the floor and bring one knee towards your chest while twisting your torso to touch your opposite elbow to the knee. Alternate sides in a pedaling motion. Repeat for 20 reps (10 each side).
+
+6. Mountain Climbers
+Equipment: None
+
+Instructions: Start in a plank position. Bring one knee towards your chest, then quickly switch legs, as if running in place. Keep your core tight and back straight. Continue alternating legs for 30-60 seconds.
+
+7. V-Ups
+Equipment: None
+
+Instructions: Lie on your back with your legs extended and arms overhead. Lift your legs and upper body simultaneously, reaching your hands towards your feet to form a V shape. Lower back down. Repeat for 12-15 reps.
+
+8. Reverse Crunches
+Equipment: None
+
+Instructions: Lie on your back with your legs bent and feet lifted off the ground. Place your hands by your sides. Lift your hips off the floor and curl them towards your chest. Lower back down. Repeat for 15-20 reps.
+
+9. Flutter Kicks
+Equipment: None
+
+Instructions: Lie on your back with your legs extended and hands under your hips. Lift your legs a few inches off the ground and alternate kicking them up and down in a fluttering motion. Continue for 30-60 seconds.
+
+10. Hanging Leg Raises
+Equipment: Pull-Up Bar
+
+Instructions: Hang from a pull-up bar with your arms fully extended and legs straight. Lift your legs towards your chest while keeping them straight. Lower back down. Repeat for 10-12 reps.
+}
+********************************
+butt{
+    1. Squats
+Equipment: None (Optional: Dumbbells or Barbell)
+
+Instructions: Stand with feet shoulder-width apart, toes slightly turned out. Lower your body by bending your knees and hips, keeping your chest up and back straight. Push through your heels to return to the starting position. Repeat for 12-15 reps.
+
+2. Glute Bridges
+Equipment: None (Optional: Resistance Band or Barbell)
+
+Instructions: Lie on your back with your knees bent and feet flat on the floor. Lift your hips towards the ceiling, squeezing your glutes at the top. Lower back down without touching the floor. Repeat for 15-20 reps.
+
+3. Lunges
+Equipment: None (Optional: Dumbbells)
+
+Instructions: Stand with feet hip-width apart. Step forward with one leg, lowering your hips until both knees are bent at 90 degrees. Push through the front heel to return to the starting position. Alternate legs and repeat for 12-15 reps per leg.
+
+4. Fire Hydrants
+Equipment: None (Optional: Resistance Band)
+
+Instructions: Start on all fours with your knees under your hips and hands under your shoulders. Lift one leg out to the side, keeping the knee bent. Lower back down. Repeat for 15-20 reps per leg.
+
+5. Donkey Kicks
+Equipment: None (Optional: Resistance Band)
+
+Instructions: Start on all fours with your knees under your hips and hands under your shoulders. Lift one leg towards the ceiling, keeping the knee bent and foot flexed. Lower back down. Repeat for 15-20 reps per leg.
+
+6. Step-Ups
+Equipment: Bench or Step (Optional: Dumbbells)
+
+Instructions: Stand in front of a bench or step. Step onto the bench with one foot, pressing through the heel to lift your body up. Step down with the same leg. Alternate legs and repeat for 12-15 reps per leg.
+
+7. Hip Thrusts
+Equipment: Bench or Step (Optional: Barbell)
+
+Instructions: Sit on the floor with your upper back against a bench, knees bent, and feet flat on the floor. Place a barbell across your hips. Lift your hips towards the ceiling, squeezing your glutes at the top. Lower back down. Repeat for 12-15 reps.
+
+8. Bulgarian Split Squats
+Equipment: Bench or Step (Optional: Dumbbells)
+
+Instructions: Stand a few feet in front of a bench. Place one foot on the bench behind you. Lower your body by bending your front knee, keeping your chest up and back straight. Push through the front heel to return to the starting position. Repeat for 12-15 reps per leg.
+
+9. Sumo Squats
+Equipment: None (Optional: Dumbbell or Kettlebell)
+
+Instructions: Stand with feet wider than shoulder-width apart, toes turned out. Lower your body by bending your knees and hips, keeping your chest up and back straight. Push through your heels to return to the starting position. Repeat for 12-15 reps.
+
+10. Single-Leg Deadlifts
+Equipment: Dumbbells or Kettlebell
+
+Instructions: Stand with feet hip-width apart, holding a dumbbell in each hand. Lift one leg straight behind you as you hinge at the hips, lowering the dumbbells towards the floor. Keep your back straight and core engaged. Return to the starting position. Repeat for 12-15 reps per leg.
+}
+***************************************
+legs{
+    1. Squats
+Equipment: None (Optional: Dumbbells or Barbell)
+
+Instructions: Stand with feet shoulder-width apart, toes slightly turned out. Lower your body by bending your knees and hips, keeping your chest up and back straight. Push through your heels to return to the starting position. Repeat for 12-15 reps.
+
+2. Lunges
+Equipment: None (Optional: Dumbbells)
+
+Instructions: Stand with feet hip-width apart. Step forward with one leg, lowering your hips until both knees are bent at 90 degrees. Push through the front heel to return to the starting position. Alternate legs and repeat for 12-15 reps per leg.
+
+3. Leg Press
+Equipment: Leg Press Machine
+
+Instructions: Adjust the seat and weights on the machine. Sit with your feet shoulder-width apart on the platform. Push the platform away by extending your legs, then slowly lower it back down. Repeat for 10-12 reps.
+
+4. Deadlifts
+Equipment: Barbell
+
+Instructions: Stand with feet hip-width apart, holding a barbell in front of your thighs. Hinge at the hips and lower the barbell towards the floor, keeping your back straight and knees slightly bent. Push through your heels to return to the starting position. Repeat for 10-12 reps.
+
+5. Leg Extensions
+Equipment: Leg Extension Machine
+
+Instructions: Adjust the seat and weights on the machine. Sit with your legs under the pad. Extend your legs until they are straight, then slowly lower them back down. Repeat for 12-15 reps.
+
+*6. Hamstring Curls
+Equipment: Hamstring Curl Machine
+
+Instructions: Adjust the seat and weights on the machine. Lie face down with your legs under the pad. Curl your legs towards your buttocks, then slowly lower them back down. Repeat for 12-15 reps.
+
+7. Calf Raises
+Equipment: None (Optional: Dumbbells)
+
+Instructions: Stand with feet shoulder-width apart. Lift your heels off the ground as high as possible, then slowly lower them back down. Repeat for 15-20 reps.
+
+8. Step-Ups
+Equipment: Bench or Step (Optional: Dumbbells)
+
+Instructions: Stand in front of a bench or step. Step onto the bench with one foot, pressing through the heel to lift your body up. Step down with the same leg. Alternate legs and repeat for 12-15 reps per leg.
+
+*9. Bulgarian Split Squats
+Equipment: Bench or Step (Optional: Dumbbells)
+
+Instructions: Stand a few feet in front of a bench. Place one foot on the bench behind you. Lower your body by bending your front knee, keeping your chest up and back straight. Push through the front heel to return to the starting position. Repeat for 12-15 reps per leg.
+
+10. Glute Bridges
+Equipment: None (Optional: Resistance Band or Barbell)
+
+Instructions: Lie on your back with your knees bent and feet flat on the floor. Lift your hips towards the ceiling, squeezing your glutes at the top. Lower back down without touching the floor. Repeat for 15-20 reps.
+url : data:image/jpeg;base64,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
+}
+************************************************************************************
+
+cardio{
+    1. Running
+Equipment: None (Optional: Treadmill)
+
+Instructions: Run at a steady pace for a set distance or time. Maintain proper form by keeping your chest up, shoulders back, and arms swinging naturally. Aim for 20-30 minutes.
+
+2. Jump Rope
+Equipment: Jump Rope
+
+Instructions: Hold the handles of the jump rope with an overhand grip. Swing the rope over your head and jump as it passes under your feet. Keep your jumps small and your core engaged. Aim for 1-2 minutes of continuous jumping.
+
+3. Burpees
+Equipment: None
+
+Instructions: Start in a standing position. Drop into a squat, place your hands on the floor, and kick your feet back into a plank position. Perform a push-up, then jump your feet back to your hands and explode into a jump. Repeat for 10-15 reps.
+
+4. High Knees
+Equipment: None
+
+Instructions: Stand with your feet hip-width apart. Run in place, lifting your knees as high as possible towards your chest. Pump your arms as you move. Continue for 30-60 seconds.
+
+5. Mountain Climbers
+Equipment: None
+
+Instructions: Start in a plank position. Bring one knee towards your chest, then quickly switch legs, as if running in place. Keep your core tight and back straight. Continue alternating legs for 30-60 seconds.
+
+6. Cycling
+Equipment: Bicycle or Stationary Bike
+
+Instructions: Cycle at a steady pace for a set distance or time. Adjust the resistance for added intensity. Aim for 20-30 minutes.
+
+7. Jumping Jacks
+Equipment: None
+
+Instructions: Stand with your feet together and arms at your sides. Jump your feet out to the sides while raising your arms overhead. Jump back to the starting position. Continue for 1-2 minutes.
+
+8. Stair Climbing
+Equipment: Stairs or Stair Climber Machine
+
+Instructions: Find a set of stairs or use a stair climber machine. Climb the stairs at a steady pace, using your legs to propel yourself upward. Aim for 10-15 minutes.
+
+9. Rowing
+Equipment: Rowing Machine
+
+Instructions: Sit on the rowing machine with your feet strapped in. Grip the handle, lean back slightly, and pull the handle towards your chest. Extend your legs and push the handle away from you. Repeat for 20-30 minutes.
+
+10. Swimming
+Equipment: Pool
+
+Instructions: Swim laps in a pool using different strokes (e.g., freestyle, breaststroke, backstroke). Maintain a steady pace and proper form. Aim for 20-30 minutes.
+}
