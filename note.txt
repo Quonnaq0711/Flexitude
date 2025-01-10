@@ -365,3 +365,18 @@ Equipment: Pool
 
 Instructions: Swim laps in a pool using different strokes (e.g., freestyle, breaststroke, backstroke). Maintain a steady pace and proper form. Aim for 20-30 minutes.
 }
+/*****************************************************************************************************************/
+
+
+services = db.relationship(
+    'Service',
+    secondary='booking_service',
+    back_populates='booking',
+    lazy='dynamic'
+  )
+booking = db.relationship(
+        'Booking',
+        secondary=booking_service,
+        back_populates='services',
+        lazy='joined'
+    )

@@ -1,0 +1,17 @@
+/* CSS HEX */
+--chinese-violet: #996888ff;
+--dark-purple: #2e0014ff;
+--light-sea-green: #2ec4b6ff;
+--bronze: #d88531ff;
+--walnut-brown: #5e5b52ff;
+
+/* CSS Gradient */
+$gradient-top: linear-gradient(0deg, #996888ff, #2e0014ff, #2ec4b6ff, #d88531ff, #5e5b52ff);
+$gradient-right: linear-gradient(90deg, #996888ff, #2e0014ff, #2ec4b6ff, #d88531ff, #5e5b52ff);
+$gradient-bottom: linear-gradient(180deg, #996888ff, #2e0014ff, #2ec4b6ff, #d88531ff, #5e5b52ff);
+$gradient-left: linear-gradient(270deg, #996888ff, #2e0014ff, #2ec4b6ff, #d88531ff, #5e5b52ff);
+$gradient-top-right: linear-gradient(45deg, #996888ff, #2e0014ff, #2ec4b6ff, #d88531ff, #5e5b52ff);
+$gradient-bottom-right: linear-gradient(135deg, #996888ff, #2e0014ff, #2ec4b6ff, #d88531ff, #5e5b52ff);
+$gradient-top-left: linear-gradient(225deg, #996888ff, #2e0014ff, #2ec4b6ff, #d88531ff, #5e5b52ff);
+$gradient-bottom-left: linear-gradient(315deg, #996888ff, #2e0014ff, #2ec4b6ff, #d88531ff, #5e5b52ff);
+$gradient-radial: radial-gradient(#996888ff, #2e0014ff, #2ec4b6ff, #d88531ff, #5e5b52ff);
