@@ -4,17 +4,16 @@ from sqlalchemy.exc import SQLAlchemyError
 
 workout_routes = Blueprint('workouts', __name__)
 
-@workout_routes.route('/', methods=['POST'])
+@workout_routes.route('/create_workout', methods=['GET', 'POST'])
 def create_workout():
-    try:
-        data = request.get_json()  # Get the request data as JSON
-        
-        # Gather workout data from the request
-        userid = data.get('userid')
-        title = data.get('title')
-        description = data.get('description')
-        exercise_type = data.get('exercise_type')
-        exercise_ids = data.get('exercise_ids')  # List of exercise IDs
+    form = WorkoutForm()
+
+    if form.validate_on_submit():
+        # Process form data here
+        title = form.title.data
+        description = form.description.data
+        exercise_type = form.exercise_type.data
+        exercises = form.exercises.data
         
         # Ensure the exercise IDs are valid and match existing exercises
         exercises = Exercise.query.filter(Exercise.id.in_(exercise_ids)).all()
