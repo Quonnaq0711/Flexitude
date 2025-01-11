@@ -14,8 +14,10 @@ class Exercise(db.Model):
     instructions = db.Column(db.Text, nullable=False)
     musclegroup = db.Column(db.String, nullable=False)
     equipment = db.Column(db.String, nullable=False)
-    sets = db.Column(db.String, nullable=False)
-    reps = db.Column(db.String, nullable=False)
+    sets = db.Column(db.String, nullable=True)
+    reps = db.Column(db.String, nullable=True)
+    time = db.Column(db.String, nullable=True)
+
 
     user = db.relationship('User', backref='exercises')
 
@@ -29,5 +31,6 @@ class Exercise(db.Model):
             'equipment': self.equipment,
             'sets': self.sets,
             'reps': self.reps,
+            'time': self.time,
         }
 
