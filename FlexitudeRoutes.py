@@ -116,3 +116,20 @@ def create_comments(db):
         db.session.add(comment)
     db.session.commit()
     print("Seed data for comments added successfully.")
+
+
+
+
+
+
+    fetch(`/exercise/Arm`, {
+        method: 'GET', // Define the request method
+        headers: {
+            'Content-Type': 'application/json' // Define the request content type
+        }
+    })
+    .then(response => response.json()) // Parse the JSON response
+    .then(data => {
+        // Handle the data, e.g., display the exercises
+        console.log('Exercises:', data)
+    };

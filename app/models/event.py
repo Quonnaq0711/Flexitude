@@ -1,4 +1,5 @@
 from .user import User
+from .workout import Workout
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from flask_sqlalchemy import SQLAlchemy
 
@@ -14,9 +15,11 @@ class Event(db.Model):
     startdate = db.Column(db.TIMESTAMP, nullable=False)
     enddate = db.Column(db.TIMESTAMP, nullable=False)
     description = db.Column(db.Text, nullable=False)
+    workoutid = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('workouts.id')), nullable=False)
 
     user = db.relationship('User', backref='events')
-    comments = db.relationship('Comment', backref='event', lazy=True)  # Fix backref to 'event'
+    workout = db.relationship('Workout', backref='events')
+    # comments = db.relationship('Comment', backref='event', lazy=True)  # Use backref on Comment side
 
     def to_dict(self):
         return {
@@ -28,7 +31,9 @@ class Event(db.Model):
             'description': self.description,
             'username': self.user.username if self.user else None,
             'comments': [comment.comment for comment in self.comments],  # Access all comments
+            'workout': self.workout.title if self.workout else None,
         }
+
 
 
 

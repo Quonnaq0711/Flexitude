@@ -15,7 +15,7 @@ class Comment(db.Model):
     exercise_ids = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('exercises.id')), nullable=True)  # Foreign key to Exercise
 
     user = db.relationship('User', backref='comments')
-    # event = db.relationship('Event', backref='comments', lazy=True)  # Relationship with Event
+    event = db.relationship('Event', backref='comments')  # Keep backref here on the 'Event' side
     exercise = db.relationship('Exercise', backref='comments', lazy=True)  # Relationship with Exercise
 
     def to_dict(self):
@@ -27,5 +27,6 @@ class Comment(db.Model):
             'event': self.event.title if self.event else None,  # Include event title
             'exercise': self.exercise.name if self.exercise else None,  # Include exercise name
         }
+
 
 

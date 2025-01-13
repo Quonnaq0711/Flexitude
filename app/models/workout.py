@@ -17,6 +17,7 @@ class Workout(db.Model):
 
     # Relationship to the Exercise model through the association table
     exercises = db.relationship('Exercise', secondary='workout_exercises', backref='workouts')
+    # event = db.relationship('Event', backref='workouts')
 
     user = db.relationship('User', backref='workouts')
 
