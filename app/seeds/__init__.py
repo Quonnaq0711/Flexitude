@@ -31,7 +31,7 @@ def seed():
         seed_user()
         seed_exercises()
         seed_workouts()
-        seed_events()
+        seed_events()        
         seed_comments()
         # Add other seed functions here
 
