@@ -45,7 +45,7 @@ def seed_events():
 # add events
 def undo_events():
     if environment =="Production":
-        db.session.execute(f'TRUNCATE table {SCHEMA}.events RESTART IDENTITY CASCADE;')
+        db.session.execute(f"TRUNCATE table {SCHEMA}.events RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute(text('DELETE FROM events'))
+        db.session.execute(text("DELETE FROM events"))
     db.session.commit()        
