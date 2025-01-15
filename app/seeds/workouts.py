@@ -43,7 +43,7 @@ def seed_workouts():
 
 
 def undo_workouts():
-    if environment == "Production":
+    if environment == "production":
         db.session.execute(f'TRUNCATE table {SCHEMA}.workouts RESTART IDENTITY CASCADE;')
     else:
         db.session.execute(text("DELETE FROM workouts"))

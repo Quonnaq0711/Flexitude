@@ -4,7 +4,7 @@ from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_login import LoginManager
-from .models import db, User, Exercise, Event, Comment, Workout
+from .models import db, User, Exercise, Event, Comment, Workout, WorkoutExercise
 from .api.workout_routes import workout_routes
 from .api.comment_routes import comment_routes
 from .api.event_routes import event_routes

@@ -2,10 +2,12 @@ from flask import Blueprint, request, jsonify
 from ..models import db, Workout, Exercise
 from ..forms import WorkoutForm
 from flask_login import login_required, current_user
-from sqlalchemy.exc import SQLAlchemyError
+
 
 workout_routes = Blueprint('workout', __name__)
 
+
+#Create workout
 @workout_routes.route('/create_workout', methods=['GET', 'POST'])
 def create_workout():
     form = WorkoutForm()
@@ -35,12 +37,18 @@ def create_workout():
 
         db.session.add(workout)
         db.session.commit()
-        return jsonify(workout.to_dict()), 201
-    
+        return jsonify({
+            'message': 'Workout created successfully',
+            'exercise': workout.to_dict()
+        }), 201
+        
     db.session.rollback()
-    return jsonify({'message': 'Invalid workout data',
+    return jsonify({
+        'message': 'Invalid workout data',
         'errors': form.errors
     }), 400
+    
+   
 
 # Get a single workout by ID
 @workout_routes.route('/<int:id>', methods=['GET'])

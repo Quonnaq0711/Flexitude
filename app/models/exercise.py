@@ -1,4 +1,5 @@
 from .user import User
+from .workout_exercise import WorkoutExercise
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from flask_sqlalchemy import SQLAlchemy
 
@@ -18,8 +19,8 @@ class Exercise(db.Model):
     reps = db.Column(db.String, nullable=True)
     time = db.Column(db.String, nullable=True)
 
-
     user = db.relationship('User', backref='exercises')
+    # workouts = db.relationship('Workout', secondary=WorkoutExercise, backref=db.backref('exercises', lazy='dynamic'))
 
     def to_dict(self):
         return {
@@ -33,4 +34,5 @@ class Exercise(db.Model):
             'reps': self.reps,
             'time': self.time,
         }
+
 
