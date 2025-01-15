@@ -21,8 +21,8 @@ def seed():
             # command, which will  truncate all tables prefixed with 
             # the schema name (see comment in users.py undo_users function).
             # Make sure to add all your other model's undo functions below
-           undo_events()
            undo_comments()
+           undo_events()
            undo_workouts()       
            undo_exercises()
            undo_user()
@@ -40,8 +40,8 @@ def seed():
 @seed_commands.command('undo')
 def undo():
     # with app.app_context():    
-    undo_events()
     undo_comments()
+    undo_events()
     undo_workouts()       
     undo_exercises()
     undo_user()

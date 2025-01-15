@@ -45,7 +45,7 @@ def seed_events():
 
 
 def undo_events():
-    if environment =="Production":
+    if environment == "Production":
         db.session.execute(f"TRUNCATE table {SCHEMA}.events RESTART IDENTITY CASCADE;")
     else:
         db.session.execute(text("DELETE FROM events"))
