@@ -14,35 +14,43 @@ def exercises():
     return jsonify({'exercises': [exercise.to_dict() for exercise in exercises]})
 
 
-#Get Exercise by Muscle Group
-@exercise_routes.route('/<musclegroup>')
-# @login_required
+# Get Exercise by Muscle Group
+@exercise_routes.route('/musclegroup/<musclegroup>', methods=['GET'])
 def exercise_by_musclegroup(musclegroup):
-    
     exercises = Exercise.query.filter_by(musclegroup=musclegroup).all()
 
     if exercises:
-         return jsonify({'exercises': [exercise.to_dict() for exercise in exercises]})
+        return jsonify({'exercises': [exercise.to_dict() for exercise in exercises]})
     else:
         return jsonify({'message': 'No exercises found for this muscle group.'}), 404
 
 
+# Get Exercise by ID
+@exercise_routes.route('/<int:exerciseid>', methods=['GET'])
+def exercise_by_id(exerciseid):
+    exercise = Exercise.query.get(exerciseid)
 
-#Get Exercise by user
-@exercise_routes.route('/user')
-# @login_required
+    if exercise:
+        return jsonify({'exercise': exercise.to_dict()})
+    else:
+        return jsonify({'message': 'Exercise not found.'}), 404
+    
+
+# Get Exercises by user
+@exercise_routes.route('/user', methods=['GET'])
+@login_required
 def exercise_by_user():
     exercises = Exercise.query.filter(Exercise.userid == current_user.id).all()
 
     if exercises:
-         return jsonify({'exercises': [exercise.to_dict() for exercise in exercises]})
+        return jsonify({'exercises': [exercise.to_dict() for exercise in exercises]})
     else:
         return jsonify({'message': 'No exercises found for this user.'}), 404
 
 
-#Add New Exercise
-@exercise_routes.route('/new' , methods=['POST'])
-# @login_required
+# Add New Exercise
+@exercise_routes.route('/new', methods=['POST'])
+@login_required
 def add_exercise():
     form = ExerciseForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -74,7 +82,7 @@ def add_exercise():
 
 
 # Update Exercise
-@exercise_routes.route('/update/<exerciseid>', methods=['GET', 'PUT'])
+@exercise_routes.route('/update/<int:exerciseid>', methods=['PUT'])
 @login_required
 def update_exercise(exerciseid):
     exercise = Exercise.query.get(exerciseid)
@@ -110,21 +118,22 @@ def update_exercise(exerciseid):
     }), 400
 
 
-#Delete Exercise
-@exercise_routes.route('<int:exerciseid>', methods=['DELETE'])
-# @login_required
+# Delete Exercise
+@exercise_routes.route('/delete/<int:exerciseid>', methods=['DELETE'])
+@login_required
 def delete_exercise(exerciseid):
     exercise = Exercise.query.get(exerciseid)
 
-    if exercise:
-        if exercise.userid != current_user.id:
-            return {'message': 'Unauthorized: Deletion cant be completed'}, 403
+    if not exercise:
+        return jsonify({'message': 'Exercise not found'}), 404
 
-        db.session.delete(exercise)
-        db.session.commit()
-        return {'message': 'Exercise deleted successfully'}, 200
-    
-    return {'error': 'Exercise doesnt exists'}
+    if exercise.userid != current_user.id:
+        return jsonify({'message': 'Unauthorized: Deletion can\'t be completed'}), 403
+
+    db.session.delete(exercise)
+    db.session.commit()
+    return jsonify({'message': 'Exercise deleted successfully'}), 200
+
 
 
         
