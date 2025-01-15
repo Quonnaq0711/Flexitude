@@ -1,6 +1,6 @@
 from .user import User
 from .db import db, environment, SCHEMA, add_prefix_for_prod
-# from .workout_exercise import workout_exercise
+from .workout_exercise import WorkoutExercise
 from flask_sqlalchemy import SQLAlchemy
 
 # In the Workout model
@@ -17,7 +17,7 @@ class Workout(db.Model):
     exercise_type = db.Column(db.String, nullable=False)  
 
     # Relationship to the Exercise model through the association table
-    exercises = db.relationship('Exercise', secondary='workout_exercises', backref='workouts')
+    exercises = db.relationship('Exercise', secondary=WorkoutExercise, backref=db.backref('workouts', lazy='dynamic'))
     user = db.relationship('User', backref='workouts')
 
     def to_dict(self):
