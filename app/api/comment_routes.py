@@ -7,12 +7,26 @@ from flask_login import login_required, current_user
 comment_routes = Blueprint('comment', __name__)
 
 
-# Get all comments
-@comment_routes.route('/')
-def comments():
-    comments = Comment.query.all()
-    return jsonify({'comments': [comment.to_dict() for comment in comments]})
+# Get all event comments
+@comment_routes.route('/event/<int:eventid>')
+def comments(eventid):
+    comments = Comment.query.filter_by(eventid=eventid).all() 
+    
+    if comments:
+        return jsonify({'comments': [comment.to_dict() for comment in comments]})
+    else:
+        return jsonify({'message': 'No comments found for this event.'}), 404
+    
 
+# Get all exercise comments
+@comment_routes.route('/exercise/<int:exerciseid>')
+def comments(exerciseid):
+    comments = Comment.query.filter_by(exerciseid=exerciseid).all()  
+    
+    if comments:
+        return jsonify({'comments': [comment.to_dict() for comment in comments]})
+    else:
+        return jsonify({'message': 'No comments found for this exercise.'}), 404
 
 #Get comment by user
 @comment_routes.route('/user')
@@ -27,7 +41,7 @@ def comment_by_user():
 
 
 #Add New event comment
-@comment_routes.route('/event/<int:eventid>/comment', methods=['POST'], endpoint='add_event_comment')
+@comment_routes.route('/event/<int:eventid>/new', methods=['POST'], endpoint='add_event_comment')
 @login_required
 def add_comment(eventid):
     form = CommentForm()
@@ -92,7 +106,7 @@ def update_comment(eventid, commentid):
 
 
 #Add New exercise comment
-@comment_routes.route('/exercise/<int:exerciseid>/comment', methods=['POST'], endpoint='add_exercise_comment')
+@comment_routes.route('/exercise/<int:exerciseid>/new', methods=['POST'], endpoint='add_exercise_comment')
 @login_required
 def add_comment(exerciseid):
     form = CommentForm()
