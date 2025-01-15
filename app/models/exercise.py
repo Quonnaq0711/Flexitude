@@ -18,7 +18,6 @@ class Exercise(db.Model):
     reps = db.Column(db.String, nullable=True)
     time = db.Column(db.String, nullable=True)
 
-
     user = db.relationship('User', backref='exercises')
 
     def to_dict(self):
@@ -33,4 +32,5 @@ class Exercise(db.Model):
             'reps': self.reps,
             'time': self.time,
         }
+
 

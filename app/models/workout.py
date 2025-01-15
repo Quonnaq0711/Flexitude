@@ -1,5 +1,6 @@
 from .user import User
 from .db import db, environment, SCHEMA, add_prefix_for_prod
+# from .workout_exercise import workout_exercise
 from flask_sqlalchemy import SQLAlchemy
 
 # In the Workout model
@@ -17,8 +18,6 @@ class Workout(db.Model):
 
     # Relationship to the Exercise model through the association table
     exercises = db.relationship('Exercise', secondary='workout_exercises', backref='workouts')
-    # event = db.relationship('Event', backref='workouts')
-
     user = db.relationship('User', backref='workouts')
 
     def to_dict(self):
@@ -43,17 +42,19 @@ class Workout(db.Model):
             ] if self.exercises else None
         }
 
-class WorkoutExercise(db.Model):
-    __tablename__ = 'workout_exercises'
 
-    workout_id = db.Column(db.Integer, db.ForeignKey('workouts.id'), primary_key=True)
-    exercise_ids = db.Column(db.Integer, db.ForeignKey('exercises.id'), primary_key=True)
-    
-    def to_dict(self):
-        return {
-            'workout_id': self.workout_id,
-            'exercise_ids': self.exercise_ids
-        }
+# class WorkoutExercise(db.Model):
+#     __tablename__ = 'workout_exercises'
+
+#     workout_id = db.Column(db.Integer, db.ForeignKey('workouts.id'), primary_key=True)
+#     exercise_id = db.Column(db.Integer, db.ForeignKey('exercises.id'), primary_key=True)
+
+#     def to_dict(self):
+#         return {
+#             'workout_id': self.workout_id,
+#             'exercise_id': self.exercise_id
+#         }
+
 
 
 
