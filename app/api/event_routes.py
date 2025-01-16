@@ -13,6 +13,16 @@ def events():
     events = Event.query.all()
     return jsonify({'events': [event.to_dict() for event in events]})
 
+# event by id
+@event_routes.route('/<eventid>')
+def events(eventid):
+    events = Event.query.filter_by(eventid=eventid).all()
+
+    if events:
+         return jsonify({'events': [event.to_dict() for event in events]})
+    else:
+        return jsonify({'message': 'No event details found.'}), 404
+
 
 #Get event by user
 @event_routes.route('/user')
@@ -35,7 +45,7 @@ def add_event():
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        new_event = event(
+        new_event = Event(
             userid=current_user.id,
             title=form.title.data,
             startdate=form.startdate.data,

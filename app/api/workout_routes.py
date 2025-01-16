@@ -8,7 +8,8 @@ workout_routes = Blueprint('workout', __name__)
 
 
 #Create workout
-@workout_routes.route('/create_workout', methods=['GET', 'POST'])
+@workout_routes.route('/new', methods=['GET', 'POST'])
+@login_required
 def create_workout():
     form = WorkoutForm()
 
@@ -52,6 +53,7 @@ def create_workout():
 
 # Get a single workout by ID
 @workout_routes.route('/<int:id>', methods=['GET'])
+# @login_required
 def get_workout(id):
     workout = Workout.query.get(id)
     if workout:
@@ -62,6 +64,7 @@ def get_workout(id):
 
 # Get all workouts
 @workout_routes.route('/', methods=['GET'])
+# @login_required
 def get_all_workouts():
     workouts = Workout.query.all()
     return jsonify([workout.to_dict() for workout in workouts]), 200
@@ -69,6 +72,7 @@ def get_all_workouts():
 
 # Update a workout by ID
 @workout_routes.route('update/<int:id>', methods=['PUT'])
+# @login_required
 def update_workout(id):
     workout = Workout.query.get(id)
     
@@ -96,6 +100,7 @@ def update_workout(id):
 
 # Delete a workout by ID
 @workout_routes.route('/<int:id>', methods=['DELETE'])
+# @login_required
 def delete_workout(id):
     workout = Workout.query.get(id)
     
