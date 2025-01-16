@@ -178,5 +178,3 @@ const exerciseReducer = (state = initialState, action) => {
 };
 
 export default exerciseReducer;
-
-
