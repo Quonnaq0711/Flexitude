@@ -15,7 +15,7 @@ def events():
 
 # event by id
 @event_routes.route('/<eventid>')
-def events(eventid):
+def events_by_id(eventid):
     events = Event.query.filter_by(eventid=eventid).all()
 
     if events:
@@ -105,7 +105,7 @@ def update_event(eventid):
 
 
 #Delete event
-@event_routes.route('/<eventid>', methods=['DELETE'])
+@event_routes.route('delete/<eventid>', methods=['DELETE'])
 # @login_required
 def delete_event(eventid):
     event = Event.query.get(eventid)

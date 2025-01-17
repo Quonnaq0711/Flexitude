@@ -9,7 +9,7 @@ comment_routes = Blueprint('comment', __name__)
 
 # Get all event comments
 @comment_routes.route('/event/<int:eventid>')
-def comments(eventid):
+def comments_by_event(eventid):
     comments = Comment.query.filter_by(eventid=eventid).all() 
     
     if comments:
@@ -20,7 +20,7 @@ def comments(eventid):
 
 # Get all exercise comments
 @comment_routes.route('/exercise/<int:exerciseid>')
-def comments(exerciseid):
+def comments_by_exercise(exerciseid):
     comments = Comment.query.filter_by(exerciseid=exerciseid).all()  
     
     if comments:

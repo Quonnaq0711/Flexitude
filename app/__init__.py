@@ -5,6 +5,7 @@ from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_login import LoginManager
 from .models import db, User, Exercise, Event, Comment, Workout, WorkoutExercise
+from .api.search_routes import search_routes
 from .api.workout_routes import workout_routes
 from .api.comment_routes import comment_routes
 from .api.event_routes import event_routes
@@ -36,6 +37,7 @@ app.register_blueprint(exercise_routes, url_prefix='/api/exercise')
 app.register_blueprint(event_routes, url_prefix='/api/event')
 app.register_blueprint(comment_routes, url_prefix='/api/comment')
 app.register_blueprint(workout_routes, url_prefix='/api/workout')
+app.register_blueprint(search_routes, url_prefix='/api/search')
 db.init_app(app)
 Migrate(app, db)
 
