@@ -1,0 +1,103 @@
+.form-container{
+    position: fixed;
+    top: 25%;
+    transform: translateX(-50%); /* Adjusts centering based on its own width */
+    width: 375px;
+    margin: 0; /* No margin, as it's fixed */
+    z-index: 1001; /* Ensure it's above the banner */
+    background-color: #2e0014ff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border: 3px solid#996888ff;
+    border-radius: 4px;
+    padding: 1rem;
+  }
+  
+  input {
+    width: 30%;
+    height: 20px;
+    padding: 4px;
+    margin: 2px 0 4px 0; /* Margin to separate inputs */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  /* Focus Effect */
+  input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  .form-header {
+    margin-bottom: 20px;
+    font-size: 32px; /* Slightly larger header for prominence */
+    text-align: center;
+    color: #fff;
+  }
+  
+    /* Label Styling */
+    label {
+        width: 100%;
+        margin-bottom: 10px; /* Space between labels */
+        font-weight: bold;
+        font-size: 1rem;
+        color: #fff;
+      }
+      
+      /* Input Styling */
+      input {
+        width: 100%;
+        padding: 12px;
+        margin: 2px 0 4px 0; /* Margin to separate inputs */
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        font-size: 1rem;
+        color: #333;
+        outline: none;
+        transition: border-color 0.3s ease;
+      }
+      
+      /* Focus Effect */
+      input:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+      }
+      
+      /* Error Message Styling */
+      p {
+        color: red;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+      }
+      
+      /* Submit Button Styling */
+      button {
+        padding: 12px 20px;
+        background-color: #d88531ff;
+        color: whitesmoke;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: transparent 0.3s ease;
+      }
+      
+      button:hover {
+        background-color: #2ec4b6ff;
+      }
+      
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .form {
+          width: 90%;
+          max-width: 100%;
+        }
+      
+        .form-header {
+          font-size: 1.5rem;
+        }
+    }

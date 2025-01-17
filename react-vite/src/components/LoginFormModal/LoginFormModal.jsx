@@ -30,8 +30,9 @@ function LoginFormModal() {
 
   return (
     <>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
+      
+      <form className="form-container" onSubmit={handleSubmit}>
+        <h1 className="form-header" >Log In</h1>
         <label>
           Email
           <input
