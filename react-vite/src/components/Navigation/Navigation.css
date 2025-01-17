@@ -1,3 +1,136 @@
+/* .profile-dropdown {
+  position: absolute;
+} */
+/* Basic reset */
+/* Reset default margins and paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Navigation Bar */
+#navigation {
+  display: flex;
+  /* position: fixed; */
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #2e0014ff; /* Dark background */
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo Section */
+#logo {
+  display: flex;
+  align-items: center;
+}
+
+#logo .logo-link img {
+  height: 100px; /* Adjust logo size */
+  width: 200px;
+}
+
+/* Search Bar Container */
+#search-bar-container {
+  flex-grow: 1; /* Make search bar take available space */
+  max-width: 500px; /* Limit the width of the search bar */
+  margin: 0 20px; /*Add space between the search bar and profile button */
+}
+
+/* Profile Button Section */
+#navigation div:last-child {
+  display: flex;
+  align-items: center;
+}
+
+/* Profile Dropdown Button */
+#navigation button {
+  display: flex;
+  align-items: center;
+  background-color: #d88531ff; 
+  color: whitesmoke;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+/* Profile Button Hover Effect */
+#navigation button:hover {
+  background-color: #2ec4b6ff; 
+}
+
+/* Profile Dropdown Menu */
 .profile-dropdown {
   position: absolute;
+  top: 40px; /* Adjust dropdown position */
+  right: 0;
+  list-style-type: none;
+  padding: 10px;
+  background-color: #2e0014ff;
+  color: whitesmoke;
+  border-radius: 5px;
+  border: 3px solid #996888ff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  z-index: 1100;
+}
+
+.profile-dropdown li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.profile-dropdown li:hover {
+  background-color: #5e5b52ff;
+}
+
+.profile-dropdown button {
+  background-color: transparent;
+  border: none;
+  color: #d88531ff;
+  cursor: pointer;
+  width: 100%;
+  padding: 10px;
+  text-align: left;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #navigation {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #search-bar-container {
+    margin-top: 10px;
+    max-width: 100%;
+  }
+
+  #logo .logo-link img {
+    height: 35px; /* Smaller logo on mobile */
+  }
+
+  #navigation div:last-child {
+    margin-top: 10px;
+  }
+
+  #navigation button {
+    width: 100%; /* Full-width button on mobile */
+  }
 }

@@ -13,7 +13,7 @@ export const loadExercise = (exercises) => ({
 
 export const getExerciseDetails = (exerciseid) => ({
     type: GET_EXERCISE_DETAILS,
-    payload: exerciseid  // Send only the ID to fetch the correct exercise in the reducer
+    payload: exerciseid 
 });
 
 export const addexercise = (exercise) => ({
@@ -178,5 +178,3 @@ const exerciseReducer = (state = initialState, action) => {
 };
 
 export default exerciseReducer;
-
-
