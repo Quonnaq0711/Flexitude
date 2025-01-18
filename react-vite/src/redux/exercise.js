@@ -47,7 +47,7 @@ export const getExercises = () => async (dispatch) => {
     const response = await fetch('/api/exercise/');
     if (response.ok) {
         const exercises = await response.json();
-        dispatch(loadExercise(exercises)); 
+        dispatch(loadExercise(exercises.exercises)); 
     } else {
         const error = await response.json();
         console.error('Problem getting exercises', error);
@@ -58,15 +58,16 @@ export const exerciseDetails = (exerciseid) => async (dispatch) => {
     const response = await fetch(`/api/exercise/${exerciseid}`); 
     if (response.ok) {
         const details = await response.json();
-        dispatch(getExerciseDetails(details.id));  // Dispatch only the ID of the exercise
+        dispatch(getExerciseDetails(details.exercise));  
     } else {
         const error = await response.json();
         console.error('Problem with get details for exercise', error);
     }
 };
 
+
 export const fetchuserExercise = (userId) => async (dispatch) => {
-    const response = await fetch('/api/exercise/user');
+    const response = await fetch(`/api/exercise/user?userid=${userId}`);
     if (response.ok) {
         const { exercises } = await response.json();
         dispatch(userExercise(userId, exercises)); 
@@ -75,6 +76,7 @@ export const fetchuserExercise = (userId) => async (dispatch) => {
         console.error("Error getting user exercises", error);
     }    
 };
+
 
 export const ExercisesByMuscleGroup = (musclegroup) => async (dispatch) => {
     const response = await fetch(`/api/exercise/musclegroup/${musclegroup}`);
@@ -143,7 +145,7 @@ const exerciseReducer = (state = initialState, action) => {
         case GET_EXERCISE_DETAILS:
             return {
                 ...state,
-                currentExercise: state.exercises.find(exercise => exercise.id === action.payload)
+                currentExercise: action.payload  // Directly store the entire exercise object
             };
         case ADD_EXERCISE:
             return {

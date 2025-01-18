@@ -54,6 +54,7 @@ body {
 #navigation div:last-child {
   display: flex;
   align-items: center;
+
 }
 
 /* Profile Dropdown Button */

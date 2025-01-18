@@ -59,7 +59,7 @@ export const getWorkoutDetails = (workoutid) => async (dispatch) => {
 };
 
 export const fetchUserWorkouts = (userid) => async (dispatch) => {
-    const response = await fetch(`/api/workout/user/${userid}`);
+    const response = await fetch(`/api/workout/user?userid=${userid}`);
     if (response.ok) {
         const { workouts } = await response.json();  
         dispatch(userWorkout(userid, workouts));  // Pass the workouts array to the action

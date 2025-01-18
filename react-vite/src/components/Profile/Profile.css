@@ -1,0 +1,108 @@
+/* Container for the entire Profile Page */
+.ProfilePage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #5e5b52ff;
+    font-family: 'Arial', sans-serif;
+    margin-top: 130px;
+}
+
+/* Styling for the user information section */
+.user-info-container {
+    background-color:  #996888ff;    
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 12px #2e0014ff;
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.user-info-container span {
+    display: block;
+    font-size: 16px;
+    color: whitesmoke;
+    margin-bottom: 8px;
+    font-weight: 150px;
+}
+
+
+
+/* Avatar image styling */
+.user-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 3px solid #2e0014ff;
+}
+
+/* Header for each manage section (exercises, workouts, etc.) */
+.manage-container {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+.manage-container h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: whitesmoke;
+    margin-bottom: 10px;
+    background-color: #2e0014ff;
+}
+
+/* Styling for each list item of exercises, workouts, events, and comments */
+.manage-container li {
+    background-color: #996888ff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px #2e0014ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.manage-container li .result-link {
+    font-size: 18px;
+    color: #2ec4b6ff;
+    text-decoration: none;
+}
+
+.manage-container li .result-link:hover {
+    text-decoration: underline;
+}
+
+/* Buttons for update and delete actions */
+.manage-container button {
+    background-color: #d88531ff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.manage-container button:hover {
+    background-color: #2ec4b6ff;
+}
+
+/* Add styles for empty state messages */
+.manage-container p {
+    font-size: 18px;
+    color:rgb(87, 4, 4);
+    font-style: italic;
+}
+
+/* Styling for the Profile Page title */
+.ProfilePage h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color:whitesmoke;
+    margin-bottom: 40px;
+}

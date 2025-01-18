@@ -6,6 +6,7 @@ import logo from "../../images/flexitude1.jpg"
 import "./Navigation.css";
 
 function Navigation() {
+ 
   return (
     <>
     <nav id="navigation">
@@ -20,7 +21,7 @@ function Navigation() {
         <SearchExercises />
       </div>
       <div>
-        <button>Add Exercise</button>
+        <NavLink to={'/exercise/new'} className='addbutton' >Add Exercise</NavLink>
       </div>
       <div>
         <ProfileButton />

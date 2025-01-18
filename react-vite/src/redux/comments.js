@@ -59,7 +59,7 @@ export const deleteComment = (commentid) => ({
 });
 
 export const fetchUserComments = (userid) => async (dispatch) => {
-    const response = await fetch(`/api/comment/user/${userid}`);
+    const response = await fetch(`/api/comment/user?userid=${userid}`);
     if (response.ok) {
         const { comments } = await response.json();
         dispatch(userComments(userid, comments));

@@ -1,0 +1,80 @@
+/* AddExerciseForm.css */
+
+/* Basic styles for the form container */
+html body {
+  background-color:  #5e5b52ff;;
+}
+form {
+    max-width: 600px;
+    margin: 130 auto;
+    padding: 20px;
+    background-color: #2e0014ff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color:whitesmoke;
+  }
+  
+  /* Styling form elements */
+  label {
+    display: block;
+    font-size: 14px;
+    color: whitesmoke;
+    margin-top: 10px;
+    
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #d88531ff;;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  /* Error message styling */
+  p {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  /* Button styling */
+  button {
+    margin-top: 15px;
+    width: 70%;
+    padding: 10px;
+    background-color: #d88531ff;;
+    color: whitesmoke;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transparent 0.3s;
+  }
+  
+  button:hover {
+    background-color:#2ec4b6ff;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    form {
+      padding: 15px;
+    }
+  
+    h2 {
+      font-size: 20px;
+    }
+  }
+  

@@ -59,7 +59,7 @@ export const geteventDetails = (eventid) => async (dispatch) => {
 };
 
 export const fetchUserevent = (userid) => async (dispatch) => {
-    const response = await fetch(`/api/event/user/${userid}`);
+    const response = await fetch(`/api/event/user?userid=${userid}`);
     if (response.ok) {
         const { events } = await response.json();  // Expecting an array of events
         dispatch(userevent(userid, events));  // Dispatch the user's events
