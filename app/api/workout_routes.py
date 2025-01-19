@@ -52,22 +52,22 @@ def create_workout():
    
 
 # Get a single workout by ID
-@workout_routes.route('/<int:id>', methods=['GET'])
-# @login_required
-def get_workout(id):
-    workout = Workout.query.get(id)
+@workout_routes.route('/<int:workoutid>', methods=['GET'])
+@login_required
+def get_workout(workoutid):
+    workout = Workout.query.get(workoutid)
     if workout:
-        return jsonify(workout.to_dict()), 200
+        return jsonify({"workouts": workout.to_dict()}), 200
     else:
         return jsonify({"error": "Workout not found"}), 404
 
 
 # Get all workouts
 @workout_routes.route('/', methods=['GET'])
-# @login_required
+@login_required
 def get_all_workouts():
     workouts = Workout.query.all()
-    return jsonify([workout.to_dict() for workout in workouts]), 200
+    return jsonify({"workouts": [workout.to_dict() for workout in workouts]}), 200
 
 
 # Update a workout by ID
@@ -95,7 +95,7 @@ def update_workout(id):
             return jsonify({"error": "Invalid exercise IDs"}), 400
     
     db.session.commit()
-    return jsonify(workout.to_dict()), 200
+    return jsonify({"workouts": workout.to_dict()}), 200
 
 
 # Delete a workout by ID
@@ -115,7 +115,7 @@ def delete_workout(id):
 
 #Get workout by user
 @workout_routes.route('/user')
-# @login_required
+@login_required
 def workout_by_user():
     workouts = Workout.query.filter(Workout.userid == current_user.id).all()
 

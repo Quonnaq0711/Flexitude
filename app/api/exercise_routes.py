@@ -108,6 +108,7 @@ def update_exercise(exerciseid):
 
         # Validate form and update the exercise data
         if form.validate_on_submit():
+            exercise.userid = current_user.id
             exercise.name = form.name.data
             exercise.instructions = form.instructions.data
             exercise.musclegroup = form.musclegroup.data
@@ -120,7 +121,7 @@ def update_exercise(exerciseid):
 
             return jsonify({
                 'message': 'Exercise updated successfully',
-                'exercise': exercise.to_dict()
+                'exercises': exercise.to_dict()
             }), 200
 
         # If form validation fails, return errors

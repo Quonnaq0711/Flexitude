@@ -72,6 +72,7 @@ def upgrade():
     op.create_table('comments',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('userid', sa.Integer(), nullable=False),
+    sa.Column('title', sa.String(), nullable=False),
     sa.Column('comment', sa.Text(), nullable=False),
     sa.Column('event_id', sa.Integer(), nullable=True),
     sa.Column('exercise_ids', sa.Integer(), nullable=True),

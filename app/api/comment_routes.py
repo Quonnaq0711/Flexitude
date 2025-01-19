@@ -52,6 +52,7 @@ def add_comment(eventid):
         new_comment = Comment(
             userid=current_user.id,
             event_id=eventid,  
+            title=form.title.data,
             comment=form.comment.data,            
         )
 
@@ -116,7 +117,8 @@ def add_comment(exerciseid):
     if form.validate_on_submit():
         new_exercise_comment = Comment(
             userid=current_user.id,
-            exercise_id=exerciseid,  
+            exercise_id=exerciseid,
+            title=form.title.data,  
             comment=form.comment.data,            
         )
 
