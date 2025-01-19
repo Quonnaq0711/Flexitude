@@ -10,13 +10,13 @@ function HomePage() {
                 <h1>Welcome to Flexitude</h1>
             </div>
             <div className="Links">
-                <NavLink to={'/exercises' } className='buttonlink'>
+                <NavLink to={'/exercise/' } className='buttonlink'>
                   Exercises  
                 </NavLink>
-                <NavLink to={'/workouts'} className='buttonlink'>
+                <NavLink to={'/workout/'} className='buttonlink'>
                     Workouts
                 </NavLink>
-                <NavLink to={'/events'} className='buttonlink'>
+                <NavLink to={'/event/'} className='buttonlink'>
                     Events
                 </NavLink>
                 <NavLink to={ '/randomizer'} className='buttonlink'>

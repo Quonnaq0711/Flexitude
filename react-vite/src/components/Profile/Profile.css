@@ -1,108 +1,107 @@
 /* Container for the entire Profile Page */
+/* Profile Page Layout */
 .ProfilePage {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
-    background-color: #5e5b52ff;
-    font-family: 'Arial', sans-serif;
-    margin-top: 130px;
+    padding: 30px;
+    background-color:  #5e5b52ff;
+    min-height: 100vh;
+    margin: 130px;
 }
 
-/* Styling for the user information section */
+/* User Info Section */
 .user-info-container {
-    background-color:  #996888ff;    
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 8px 12px #2e0014ff;
-    margin-bottom: 30px;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    font-size: 20px;    
+    background-color:  #2e0014ff;     
     max-width: 600px;
+    width: 100%;
 }
 
 .user-info-container span {
-    display: block;
-    font-size: 16px;
+    margin: 8px 0;
     color: whitesmoke;
-    margin-bottom: 8px;
-    font-weight: 150px;
 }
 
-
-
-/* Avatar image styling */
+/* User Avatar */
 .user-avatar {
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 250px;
     border-radius: 50%;
-    margin-bottom: 20px;
-    border: 3px solid #2e0014ff;
+    margin-top: 20px;
+    border: 2px solid #2e0014ff;
+    object-fit: cover;
 }
 
-/* Header for each manage section (exercises, workouts, etc.) */
+/* Manage Containers for Exercises, Workouts, Events, and Comments */
 .manage-container {
     width: 100%;
-    max-width: 600px;
-    margin-bottom: 30px;
+    max-width: 800px;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #2e0014ff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px  #996888ff;
 }
 
 .manage-container h2 {
-    font-size: 24px;
-    font-weight: bold;
-    color: whitesmoke;
-    margin-bottom: 10px;
-    background-color: #2e0014ff;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color:whitesmoke;
+    text-align: center;
 }
 
-/* Styling for each list item of exercises, workouts, events, and comments */
-.manage-container li {
-    background-color: #996888ff;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px #2e0014ff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.manage-container li .result-link {
-    font-size: 18px;
-    color: #2ec4b6ff;
-    text-decoration: none;
-}
-
-.manage-container li .result-link:hover {
-    text-decoration: underline;
-}
-
-/* Buttons for update and delete actions */
-.manage-container button {
+/* Button Styling for Navigation Links */
+.button {
+    display: inline-block;
     background-color: #d88531ff;
-    color: #fff;
-    border: none;
-    padding: 8px 12px;
-    margin-left: 10px;
+    color: whitesmoke;
+    font-size: 1.2rem;
+    padding: 12px 20px;
     border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+    transition: transparent 0.3s ease;
 }
 
-.manage-container button:hover {
+.button:hover {
     background-color: #2ec4b6ff;
 }
 
-/* Add styles for empty state messages */
-.manage-container p {
-    font-size: 18px;
-    color:rgb(87, 4, 4);
-    font-style: italic;
+.button:active {
+    background-color: #2ec4b6ff;
 }
 
-/* Styling for the Profile Page title */
-.ProfilePage h1 {
-    font-size: 36px;
-    font-weight: bold;
-    color:whitesmoke;
-    margin-bottom: 40px;
+/* Responsive Design */
+@media (max-width: 768px) {
+    .ProfilePage {
+        padding: 15px;
+    }
+
+    .user-info-container {
+        font-size: 1rem;
+    }
+
+    .manage-container {
+        padding: 15px;
+    }
+
+    .manage-container h2 {
+        font-size: 1.3rem;
+    }
+
+    .user-avatar {
+        width: 120px;
+        height: 120px;
+    }
+
+    .button {
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
 }

@@ -14,10 +14,11 @@ const EventList = () => {
         setEvents(data.events);
         setLoading(false);
       })
-      .catch( error=> {
+      .catch(
+        error => {
         setError('Failed to fetch events');
         setLoading(false);
-      });
+      })
   }, []);  
 
   if (loading) {
@@ -27,7 +28,7 @@ const EventList = () => {
   if (error) {
     return <p className="loading-message">{error}</p>;
   }
-// 
+ 
   return (
     <div className='list'>
       <h1>Event List</h1>

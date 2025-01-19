@@ -49,7 +49,7 @@ const AddExerciseForm = () => {
     try {
       // Dispatch createExercise action
       await dispatch(createExercise(exerciseData));
-      navigate('/exercises'); // Redirect to exercise list page or another page
+      navigate('/exercise/'); // Redirect to exercise list page or another page
     } catch (error) {
       console.error('Error creating exercise', error);
       setErrors(error.errors || { general: 'Something went wrong' }); // Handle backend validation errors

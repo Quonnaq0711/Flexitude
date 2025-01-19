@@ -1,0 +1,21 @@
+.div {
+    margin: 150px;
+    
+}
+
+.p {
+    color: whitesmoke;
+    margin-top: 10px;
+}
+
+h2 {
+    font: bold;
+    font-size: 36px;
+}
+
+.userbutton {
+    display: inline-flex;
+    justify-content: space-evenly;
+    width: 75%;
+    gap: 15px;
+}

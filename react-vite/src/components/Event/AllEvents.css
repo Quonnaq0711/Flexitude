@@ -36,10 +36,10 @@
   }
   
   /* Hover effect */
-  li:hover {
+  /* .NavLink:hover {
     background-color:#2ec4b6ff;
     transform: scale(1.05);
-  }
+  } */
   
   .loading-message {
     text-align: center;
