@@ -88,18 +88,14 @@ def add_exercise():
 def update_exercise(exerciseid):
     # Fetch the exercise by ID
     exercise = Exercise.query.get(exerciseid)
-
-    # If exercise doesn't exist, return a 404
-    if not exercise:
-        return jsonify({'message': 'Exercise doesn\'t exist'}), 404
-
-    # Ensure the current user is the owner of the exercise
-    if exercise.userid != current_user.id:
-        return jsonify({'message': 'Unauthorized: You cannot edit this exercise'}), 403
-
-    # Handle GET request - Return exercise details
+    
     if request.method == 'GET':
+        if not exercise:
+            return jsonify({'message': 'Exercise doesn\'t exist'}), 404
         return jsonify({'exercise': exercise.to_dict()}), 200
+    
+    if exercise.userid != current_user.id:
+        return jsonify({'message': 'Unauthorized: You cannot edit this exercise'}), 401        
 
     # Handle PUT request - Update exercise details
     if request.method == 'PUT':
@@ -121,7 +117,7 @@ def update_exercise(exerciseid):
 
             return jsonify({
                 'message': 'Exercise updated successfully',
-                'exercises': exercise.to_dict()
+                'exercise': exercise.to_dict()  # This should be 'exercise'
             }), 200
 
         # If form validation fails, return errors
@@ -129,6 +125,7 @@ def update_exercise(exerciseid):
             'message': 'Invalid Exercise data',
             'errors': form.errors
         }), 400
+
 
 
 

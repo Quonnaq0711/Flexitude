@@ -10,8 +10,8 @@ class Comment(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     userid = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('user.id')), nullable=False)
-    title = db.Column(db.String, nullable=False)
-    comment = db.Column(db.Text, nullable=False)
+    title = db.Column(db.String, nullable=True)
+    comment = db.Column(db.Text, nullable=True)
     event_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('events.id')), nullable=True)  # Foreign key to Event
     exercise_ids = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('exercises.id')), nullable=True)  # Foreign key to Exercise
 
