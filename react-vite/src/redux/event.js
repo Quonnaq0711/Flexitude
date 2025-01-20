@@ -69,7 +69,7 @@ export const fetchUserevent = (userid) => async (dispatch) => {
     }
 };
 
-export const createevent = (eventData) => async (dispatch) => {
+export const createEvent = (eventData) => async (dispatch) => {
     const response = await fetch('/api/event/new', {
         method: "POST",
         headers: { "Content-Type": "application/json" },

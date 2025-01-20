@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import './WorkoutDetails.css';
 
 function WorkoutDetails() {
   const { workoutid } = useParams(); // Extract the workout ID from the URL parameters
@@ -11,12 +12,15 @@ function WorkoutDetails() {
     // Fetch workout details from the backend
     const fetchWorkout = async () => {
       try {
-        const response = await fetch(`/api/workouts/${workoutid}`, {
+        const response = await fetch(`/api/workout/${workoutid}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
           },
         });
+
+        // const text = await response.text(); // Get the raw response as text
+        // console.log(text); // Log the raw response
 
         if (!response.ok) {
           throw new Error('Failed to fetch workout');
@@ -43,22 +47,22 @@ function WorkoutDetails() {
   }
 
   return (
-    <div>
+    <div className='wd' >
       <h1>{workout.title}</h1>
-      <p>{workout.description}</p>
-      <p>Type: {workout.exercise_type}</p>
-      <p>Created by: {workout.username}</p>
-      <h3>Exercises:</h3>
+      <p className='p'>Description: {workout.description}</p>
+      <p className='p'>Type: {workout.exercise_type}</p>
+      <p className='p'>Created by: {workout.username}</p>
+      <h3 className='h3' >Exercises:</h3>
       <ul>
         {workout.exercises.map(exercise => (
           <li key={exercise.id}>
             <h4>{exercise.name}</h4>
-            <p>Equipment: {exercise.equipment}</p>
-            <p>Muscle Group: {exercise.musclegroup}</p>
-            <p>Instructions: {exercise.instructions}</p>
-            <p>Reps: {exercise.reps}</p>
-            <p>Sets: {exercise.sets}</p>
-            <p>Time: {exercise.time}</p>
+            <p className='p'>Equipment: {exercise.equipment}</p>
+            <p className='p'>Muscle Group: {exercise.musclegroup}</p>
+            <p className='p'>Instructions: {exercise.instructions}</p>
+            <p className='p'>Reps: {exercise.reps}</p>
+            <p className='p'>Sets: {exercise.sets}</p>
+            <p className='p'>Time: {exercise.time}</p>
           </li>
         ))}
       </ul>

@@ -15,6 +15,10 @@ import UserCommentList from '../components/Comment/UserComment';
 import UserWorkoutList from '../components/Workout/UserWorkoutList';
 import NotFound from '../components/NotFound/notfound';
 import WorkoutDetails from '../components/Workout/WorkoutDetails';
+import ExerciseDetails from '../components/Exercise/ExerciseDetails';
+import EventDetails from '../components/Event/EventDetails';
+import AddEvent from '../components/Event/addEvent';
+import UpdateEventForm from '../components/Event/UpdateEvent';
 
 
 export const router = createBrowserRouter([
@@ -74,8 +78,24 @@ export const router = createBrowserRouter([
         element: <UserWorkoutList />,
       },
       {
-        path: "/workout/:id",
+        path: "/workout/:workoutid",
         element: <WorkoutDetails />,
+      },
+      {
+        path: "/exercise/:exerciseid",
+        element: <ExerciseDetails />,
+      },
+      {
+        path: "/event/:eventid",
+        element: <EventDetails />,
+      },
+      {
+        path: "/event/new",
+        element: <AddEvent />,
+      },
+      {
+        path: "/event/update/:eventid",
+        element: <UpdateEventForm />,
       },
       {
         path: '*',

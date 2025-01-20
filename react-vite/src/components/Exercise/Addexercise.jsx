@@ -166,7 +166,7 @@ const AddExerciseForm = () => {
         </div>
 
         {errors.general && <p className="error">{errors.general}</p>}
-        <button type="submit">Add Exercise</button>
+        <button className='b3' type="submit">Add Exercise</button>
       </form>
     </div>
   );

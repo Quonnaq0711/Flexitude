@@ -5,11 +5,17 @@
   /* Unnecessary styles commented out */
 }
 
+.b2 {
+  width: 45%;
+  margin-left: 200px;
+  margin-bottom: 15px;
+}
+
 h1 {
   font-size: 2.5rem;
   text-align: center; 
   color: whitesmoke;   
-  margin-bottom: 30px;
+  margin-bottom: 5px;
   text-transform: uppercase;
 }
 

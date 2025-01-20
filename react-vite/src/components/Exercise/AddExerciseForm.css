@@ -6,11 +6,17 @@ html body {
 }
 form {
     max-width: 600px;
-    margin: 130 auto;
+    margin: 170px;
     padding: 20px;
     background-color: #2e0014ff;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .b3{
+    width: 45%;
+    margin-left: 150px;
+    margin-bottom: 15px;
   }
   
   h2 {

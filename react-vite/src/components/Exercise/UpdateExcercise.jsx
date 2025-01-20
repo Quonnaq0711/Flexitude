@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import './UpdateExercise.css';
 import { useSelector } from 'react-redux';
 
-const UpdateExerciseForm = ({ exerciseid }) => {  // currentUser passed as prop or context
+const UpdateExerciseForm = () => {  
+  const { exerciseid } = useParams();
   const navigate = useNavigate();
 
   const musclegroups = ['Arms', 'Shoulders', 'Chest', 'Abdominals', 'Butt/Legs', 'Cardio'];
-  const SETS = ['0','1', '2', '3', '4', '5', '6','7', '8', '9', '10'];
-  const REPS = ['0','1', '2', '3', '4', '5', '6','7', '8', '9', '10', '11', '12', '13', '14', '15', '16','17', '18', '19', '20', '21', '22', '23', '24', '25', '26','27', '28', '29', '30'];
-  const TIME = ['0', '30 SECONDS','45 SECONDS','60 SECONDS','2 MINUTES','5 MINUTES', '10 MINUTES','15 MINUTES','20 MINUTES','25 MINUTES','30 MINUTES'];
+  const SETS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+  const REPS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30'];
+  const TIME = ['0', '30 SECONDS', '45 SECONDS', '60 SECONDS', '2 MINUTES', '5 MINUTES', '10 MINUTES', '15 MINUTES', '20 MINUTES', '25 MINUTES', '30 MINUTES'];
 
   const [exercise, setExercise] = useState({
     name: '',
@@ -22,25 +23,35 @@ const UpdateExerciseForm = ({ exerciseid }) => {  // currentUser passed as prop 
   });
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState('');
-  const [loading, setLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const currentUser = useSelector((state) => state.session.user.id)
-
+  const currentUser = useSelector((state) => state.session.user.id);
+console.log("ID", exerciseid)
   // Fetch exercise data when the component mounts (GET request)
   useEffect(() => {
-    fetch(`/api/exercise/update/${exerciseid}`)
-      .then(response => {
-        if (response.ok) return response.json();
-        throw new Error('Failed to fetch exercise');
-      })
-      .then(data => {
-        setExercise(data.exercise);
-        setLoading(false);
-      })
-      .catch(error => {
-        setErrors(error);
-        setLoading(false);
-      });
+    const fetchExercise = async () => {
+      try {
+        const response = await fetch(`/api/exercise/update/${exerciseid}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        console.log('Response:', response); // Debugging line
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch exercise');
+        }
+
+        const data = await response.json();
+        setExercise(data.exercises); // Make sure this matches the JSON key
+      } catch (error) {
+        
+        setErrors({ fetch: error.message });
+      }
+    };
+// console.log('Error:', error); // Debugging line
+    fetchExercise();
   }, [exerciseid]);
 
   const handleChange = (e) => {
@@ -66,7 +77,7 @@ const UpdateExerciseForm = ({ exerciseid }) => {  // currentUser passed as prop 
       sets: exercise.sets,
       reps: exercise.reps,
       time: exercise.time,
-      userId: currentUser,  // Include the current user ID
+      userid: currentUser,
     };
 
     console.log('Sending PUT request with body:', updatedExercise); // Debugging line
@@ -75,7 +86,6 @@ const UpdateExerciseForm = ({ exerciseid }) => {  // currentUser passed as prop 
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        // 'Authorization': `Bearer ${token}`  // Uncomment if authorization is needed
       },
       body: JSON.stringify(updatedExercise),
     })
@@ -87,26 +97,22 @@ const UpdateExerciseForm = ({ exerciseid }) => {  // currentUser passed as prop 
       .then((data) => {
         if (data.message === 'Exercise updated successfully') {
           setMessage('Exercise updated successfully!');
-          navigate('/exercise/user'); // Navigate after success
+          navigate('/exercise/user');
         } else {
           setErrors(data.errors || {});
         }
       })
       .catch((error) => {
-        console.error(error);
-        alert('There was an error updating the exercise');
+        console.error('Error:', error); // Debugging line
+        setErrors({ update: error.message });
       })
       .finally(() => {
         setIsSubmitting(false);
       });
   };
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
   return (
-    <div className="update-exercise-form">      
+    <div className="add-exercise-form">
       <form onSubmit={handleSubmit}>
         <h2>Update Exercise</h2>
         <div>
@@ -216,7 +222,7 @@ const UpdateExerciseForm = ({ exerciseid }) => {  // currentUser passed as prop 
 
         {message && <p className="success">{message}</p>}
 
-        <button type="submit" disabled={loading || isSubmitting}>
+        <button type="submit" disabled={isSubmitting}>
           Update Exercise
         </button>
       </form>
@@ -225,3 +231,4 @@ const UpdateExerciseForm = ({ exerciseid }) => {  // currentUser passed as prop 
 };
 
 export default UpdateExerciseForm;
+
