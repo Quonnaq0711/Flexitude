@@ -91,18 +91,20 @@ def update_workout(workoutid):
 
 
 # Delete a workout by ID
-@workout_routes.route('/<int:id>', methods=['DELETE'])
+@workout_routes.route('/delete/<int:workoutid>', methods=['DELETE'])
 @login_required
-def delete_workout(id):
-    workout = Workout.query.get(id)
-    
+def delete_workout(workoutid):
+    workout = Workout.query.get(workoutid)
+
     if not workout:
-        return jsonify({"error": "Workout not found"}), 404
-    
+        return jsonify({'message': 'Workout not found'}), 404
+
+    if workout.userid != current_user.id:
+        return jsonify({'message': 'Unauthorized: Deletion can\'t be completed'}), 403
+
     db.session.delete(workout)
     db.session.commit()
-    
-    return jsonify({"message": "Workout deleted successfully"}), 200
+    return jsonify({'message': 'Workout deleted successfully'}), 200
 
 
 #Get workout by user
