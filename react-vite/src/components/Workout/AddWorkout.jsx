@@ -155,7 +155,7 @@ const AddWorkoutForm = () => {
         </div>
 
         <div>
-          <label>Exercises</label>
+          <label>Exercises (up to 6)</label>
           {form.exercises.map((exercise, index) => (
             <select
               key={index}
