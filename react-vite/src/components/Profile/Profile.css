@@ -1,0 +1,107 @@
+/* Container for the entire Profile Page */
+/* Profile Page Layout */
+.ProfilePage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    background-color:  #5e5b52ff;
+    min-height: 100vh;
+    margin: 130px;
+}
+
+/* User Info Section */
+.user-info-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    font-size: 20px;    
+    background-color:  #2e0014ff;     
+    max-width: 600px;
+    width: 100%;
+}
+
+.user-info-container span {
+    margin: 8px 0;
+    color: whitesmoke;
+}
+
+/* User Avatar */
+.user-avatar {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    margin-top: 20px;
+    border: 2px solid #2e0014ff;
+    object-fit: cover;
+}
+
+/* Manage Containers for Exercises, Workouts, Events, and Comments */
+.manage-container {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #2e0014ff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px  #996888ff;
+}
+
+.manage-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color:whitesmoke;
+    text-align: center;
+}
+
+/* Button Styling for Navigation Links */
+.button {
+    display: inline-block;
+    background-color: #d88531ff;
+    color: whitesmoke;
+    font-size: 1.2rem;
+    padding: 12px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+    transition: transparent 0.3s ease;
+}
+
+.button:hover {
+    background-color: #2ec4b6ff;
+}
+
+.button:active {
+    background-color: #2ec4b6ff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .ProfilePage {
+        padding: 15px;
+    }
+
+    .user-info-container {
+        font-size: 1rem;
+    }
+
+    .manage-container {
+        padding: 15px;
+    }
+
+    .manage-container h2 {
+        font-size: 1.3rem;
+    }
+
+    .user-avatar {
+        width: 120px;
+        height: 120px;
+    }
+
+    .button {
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
+}

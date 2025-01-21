@@ -6,9 +6,17 @@ import {
 } from "redux";
 import thunk from "redux-thunk";
 import sessionReducer from "./session";
+import exerciseReducer from "./exercise";
+import eventReducer from "./event";
+import commentReducer from "./comments";
+import workoutReducer from "./workouts"
 
 const rootReducer = combineReducers({
   session: sessionReducer,
+  exercise: exerciseReducer,
+  event: eventReducer,
+  comments: commentReducer,
+  workout: workoutReducer,
 });
 
 let enhancer;

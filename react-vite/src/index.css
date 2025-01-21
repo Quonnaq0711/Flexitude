@@ -1,5 +1,5 @@
 /* TODO: Add sitewide styles */ 
-html {
+html body {
     background-color: #5e5b52ff;
     
 }
@@ -14,6 +14,7 @@ button {
     cursor: pointer;
     font-size: 1rem;
     transition: background-color 0.3s ease;
+    
 }
 
 button:hover {

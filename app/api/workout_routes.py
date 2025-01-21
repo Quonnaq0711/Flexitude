@@ -7,115 +7,109 @@ from flask_login import login_required, current_user
 workout_routes = Blueprint('workout', __name__)
 
 
-#Create workout
-@workout_routes.route('/new', methods=['GET', 'POST'])
-@login_required
+# create workout 
+@workout_routes.route('/new', methods=['POST'])
+#@login_required
 def create_workout():
-    form = WorkoutForm()
+    data = request.get_json()
 
-    if form.validate_on_submit():
-        # Process form data here
-        title = form.title.data
-        description = form.description.data
-        exercise_type = form.exercise_type.data
-        exercises = form.exercises.data
-        
-        # Ensure the exercise IDs are valid and match existing exercises
-        exercises = Exercise.query.filter(Exercise.id.in_(exercise_ids)).all()
-        
-        # Ensure the number of exercises matches the given exercise_ids
-        if len(exercises) != len(exercise_ids):
-            return jsonify({"error": "Invalid exercise IDs"}), 400
-        
-        # Create a new workout instance
-        workout = Workout(
-            userid=userid,
-            title=title,
-            description=description,
-            exercise_type=exercise_type,
-            exercises=exercises  # Many-to-many relationship
-        )
+    
+    title = data.get('title')
+    description = data.get('description')
+    exercise_type = data.get('exercise_type')
+    exercise_ids = data.get('exercises')
 
-        db.session.add(workout)
-        db.session.commit()
-        return jsonify({
-            'message': 'Workout created successfully',
-            'exercise': workout.to_dict()
-        }), 201
-        
-    db.session.rollback()
-    return jsonify({
-        'message': 'Invalid workout data',
-        'errors': form.errors
-    }), 400
+    if not title or not description or not exercise_type or not exercise_ids:
+        return jsonify({'error': 'Missing required fields'}), 400
+
+    # Ensure valid exercises exist
+    exercises = Exercise.query.filter(Exercise.id.in_(exercise_ids)).all()
+    if len(exercises) != len(exercise_ids):
+        return jsonify({'error': 'Invalid exercise IDs'}), 400
+
+    # Create workout instance
+    workout = Workout(
+        userid=current_user.id,
+        title=title,
+        description=description,
+        exercise_type=exercise_type,
+        exercises=exercises
+    )
+    db.session.add(workout)
+    db.session.commit()
+
+    return jsonify({'message': 'Workout created successfully'}), 201
+
+
     
    
 
 # Get a single workout by ID
-@workout_routes.route('/<int:id>', methods=['GET'])
-# @login_required
-def get_workout(id):
-    workout = Workout.query.get(id)
+@workout_routes.route('/<int:workoutid>', methods=['GET'])
+#@login_required
+def get_workout(workoutid):
+    workout = Workout.query.get(workoutid)
     if workout:
-        return jsonify(workout.to_dict()), 200
+        return jsonify({"workouts": workout.to_dict()}), 200
     else:
         return jsonify({"error": "Workout not found"}), 404
 
 
 # Get all workouts
 @workout_routes.route('/', methods=['GET'])
-# @login_required
+##@login_required
 def get_all_workouts():
     workouts = Workout.query.all()
-    return jsonify([workout.to_dict() for workout in workouts]), 200
+    return jsonify({"workouts": [workout.to_dict() for workout in workouts]}), 200
 
 
-# Update a workout by ID
-@workout_routes.route('update/<int:id>', methods=['PUT'])
-# @login_required
-def update_workout(id):
-    workout = Workout.query.get(id)
-    
-    if not workout:
-        return jsonify({"error": "Workout not found"}), 404
-    
+# Update a workout 
+@workout_routes.route('update/<int:workoutid>', methods=['PUT'])
+@login_required
+def update_workout(workoutid):
+    workout = Workout.query.get_or_404(workoutid)
+
+    # Update the workout details
     data = request.get_json()
-
-    # Update fields based on request data
     workout.title = data.get('title', workout.title)
     workout.description = data.get('description', workout.description)
     workout.exercise_type = data.get('exercise_type', workout.exercise_type)
 
-    exercise_ids = data.get('exercise_ids')
-    if exercise_ids:
-        exercises = Exercise.query.filter(Exercise.id.in_(exercise_ids)).all()
-        if len(exercises) == len(exercise_ids):
-            workout.exercises = exercises
-        else:
-            return jsonify({"error": "Invalid exercise IDs"}), 400
-    
+    # Get the exercises and ensure they are valid
+    exercise_ids = data.get('exercises')
+    exercises = Exercise.query.filter(Exercise.id.in_(exercise_ids)).all()
+    if len(exercises) != len(exercise_ids):
+        return jsonify({'error': 'Invalid exercise IDs'}), 400
+
+    workout.exercises = exercises
+
+    # Commit the changes to the database
     db.session.commit()
-    return jsonify(workout.to_dict()), 200
+
+    return jsonify({'message': 'Workout updated successfully'}), 200
+
 
 
 # Delete a workout by ID
-@workout_routes.route('/<int:id>', methods=['DELETE'])
-# @login_required
-def delete_workout(id):
-    workout = Workout.query.get(id)
-    
+@workout_routes.route('/delete/<int:workoutid>', methods=['DELETE'])
+@login_required
+def delete_workout(workoutid):
+    workout = Workout.query.get(workoutid)
+
     if not workout:
-        return jsonify({"error": "Workout not found"}), 404
-    
+        return jsonify({'message': 'Workout not found'}), 404
+
+    if workout.userid != current_user.id:
+        return jsonify({'message': 'Unauthorized: Deletion can\'t be completed'}), 403
+
     db.session.delete(workout)
     db.session.commit()
-    
-    return jsonify({"message": "Workout deleted successfully"}), 200
+    return jsonify({'message': 'Workout deleted successfully'}), 200
 
 
 #Get workout by user
 @workout_routes.route('/user')
-# @login_required
+@login_required
 def workout_by_user():
     workouts = Workout.query.filter(Workout.userid == current_user.id).all()
 

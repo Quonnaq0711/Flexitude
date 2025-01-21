@@ -48,9 +48,10 @@ def exercise_by_user():
         return jsonify({'message': 'No exercises found for this user.'}), 404
 
 
+
 # Add New Exercise
 @exercise_routes.route('/new', methods=['POST'])
-@login_required
+#@login_required
 def add_exercise():
     form = ExerciseForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -82,40 +83,36 @@ def add_exercise():
 
 
 # Update Exercise
-@exercise_routes.route('/update/<int:exerciseid>', methods=['PUT'])
+@exercise_routes.route('/update/<int:exercise_id>', methods=['PUT'])
 @login_required
-def update_exercise(exerciseid):
-    exercise = Exercise.query.get(exerciseid)
-
-    if not exercise:
-        return jsonify({'message': 'Exercise doesn\'t exist'}), 404
-
+def update_exercise(exercise_id):
+    # Retrieve the exercise by ID
+    exercise = Exercise.query.get_or_404(exercise_id)
+    
+    # Ensure the current user owns the exercise or is an admin
     if exercise.userid != current_user.id:
-        return jsonify({'message': 'Unauthorized: You cannot edit this exercise'}), 403
-
-    form = ExerciseForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-
-    if form.validate_on_submit():
-        exercise.name = form.name.data
-        exercise.instructions = form.instructions.data
-        exercise.musclegroup = form.musclegroup.data
-        exercise.equipment = form.equipment.data
-        exercise.sets = form.sets.data
-        exercise.reps = form.reps.data
-        exercise.time = form.time.data
-
+        return jsonify({"error": "Unauthorized"}), 403
+    
+    data = request.get_json()
+    
+    # Update exercise fields
+    exercise.name = data.get('name', exercise.name)
+    exercise.instructions = data.get('instructions', exercise.instructions)
+    exercise.musclegroup = data.get('musclegroup', exercise.musclegroup)
+    exercise.equipment = data.get('equipment', exercise.equipment)
+    exercise.sets = data.get('sets', exercise.sets)
+    exercise.reps = data.get('reps', exercise.reps)
+    exercise.time = data.get('time', exercise.time)
+    
+    try:
         db.session.commit()
+        return jsonify({'message': 'Exercise updated successfully', 'exercise': exercise.to_dict()}), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 400
 
-        return jsonify({
-            'message': 'Exercise updated successfully',
-            'exercise': exercise.to_dict()
-        }), 200
 
-    return jsonify({
-        'message': 'Invalid Exercise data',
-        'errors': form.errors
-    }), 400
+
 
 
 # Delete Exercise

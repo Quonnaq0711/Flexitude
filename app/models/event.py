@@ -15,7 +15,7 @@ class Event(db.Model):
     startdate = db.Column(db.TIMESTAMP, nullable=False)
     enddate = db.Column(db.TIMESTAMP, nullable=False)
     description = db.Column(db.Text, nullable=False)
-    workoutid = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('workouts.id')), nullable=False)
+    workoutid = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('workouts.id')), nullable=True)
 
     user = db.relationship('User', backref='events')
     workout = db.relationship('Workout', backref='events')

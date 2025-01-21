@@ -1,0 +1,70 @@
+ .list {
+    margin: 130px 0;
+    background-color: #5e5b52ff;
+    width: 100%;
+    /* Unnecessary styles commented out */
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: whitesmoke;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+  }
+  
+  ul {
+    display: grid; /* Use CSS Grid */
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Flexible grid */
+    gap: 10px; /* Space between items */
+    list-style-type: none; /* Remove list bullet points */
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    justify-items: center;
+    font-size: 1.2rem;
+    padding: 15px;
+    color: whitesmoke;
+    background-color:  #2e0014ff;
+    border: 2px solid #996888ff;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+  }
+  
+  /* Hover effect */
+  /* .NavLink:hover {
+    background-color:#2ec4b6ff;
+    transform: scale(1.05);
+  } */
+  
+  .loading-message {
+    text-align: center;
+    font-size: 1.5rem;
+    color:whitesmoke;
+    margin-top: 50px;
+    font-style: italic;
+  }
+  
+  .NavLink {
+    text-decoration: none;
+  }
+  
+  @media (max-width: 768px) {
+    .list {
+      padding: 15px;
+      margin: 10px;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  
+    li {
+      font-size: 1rem;
+    }
+  }
+  

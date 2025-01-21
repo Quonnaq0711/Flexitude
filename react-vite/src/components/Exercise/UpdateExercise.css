@@ -1,0 +1,50 @@
+.update-exercise-form {
+    max-width: 500px;
+    margin: 160px auto;
+    padding: 0px;
+    background-color:  #5e5b52ff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px  #996888ff;
+  }
+  
+  .update-exercise-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .update-exercise-form form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .update-exercise-form label {
+    margin-bottom: 8px;
+  }
+  
+  .update-exercise-form input,
+  .update-exercise-form select,
+  .update-exercise-form textarea {
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 2px solid #996888ff;
+    border-radius: 4px;
+  }
+  
+  .update-exercise-form button {
+    padding: 10px;
+    background-color: #d88531ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .update-exercise-form button:hover {
+    background-color: #2ec4b6ff;
+  }
+  
+  .error {
+    color: red;
+    font-size: 0.9rem;
+  }
+  

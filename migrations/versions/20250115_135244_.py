@@ -58,7 +58,7 @@ def upgrade():
     sa.Column('startdate', sa.TIMESTAMP(), nullable=False),
     sa.Column('enddate', sa.TIMESTAMP(), nullable=False),
     sa.Column('description', sa.Text(), nullable=False),
-    sa.Column('workoutid', sa.Integer(), nullable=False),
+    sa.Column('workoutid', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['userid'], ['user.id'], ),
     sa.ForeignKeyConstraint(['workoutid'], ['workouts.id'], ),
     sa.PrimaryKeyConstraint('id')
@@ -71,8 +71,9 @@ def upgrade():
     )
     op.create_table('comments',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('userid', sa.Integer(), nullable=False),
-    sa.Column('comment', sa.Text(), nullable=False),
+    sa.Column('userid', sa.Integer(), nullable=True),
+    sa.Column('title', sa.String(), nullable=True),
+    sa.Column('comment', sa.Text(), nullable=True),
     sa.Column('event_id', sa.Integer(), nullable=True),
     sa.Column('exercise_ids', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['event_id'], ['events.id'], ),
