@@ -3,6 +3,11 @@ import frontpage from "../../images/flexitude.jpg"
 import "./HomePage.css";
 
 function HomePage() {
+
+    const random = () => {
+        alert('Feature Coming Soon...')
+    }
+
     return (
         <div className="home-page-container">
             {/* Title Section */}
@@ -19,7 +24,7 @@ function HomePage() {
                 <NavLink to={'/event/'} className='buttonlink'>
                     Events
                 </NavLink>
-                <NavLink to={ '/randomizer'} className='buttonlink'>
+                <NavLink onClick={random} className='buttonlink1'>
                     Randomizer
                 </NavLink>
             </div>

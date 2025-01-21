@@ -23,6 +23,7 @@ import AddWorkoutForm from '../components/Workout/AddWorkout';
 import UpdateWorkoutForm from '../components/Workout/UpdateWorkout';
 
 
+
 export const router = createBrowserRouter([
   {
     element: <Layout />,

@@ -1,8 +1,5 @@
-/* .profile-dropdown {
-  position: absolute;
-} */
-/* Basic reset */
-/* Reset default margins and paddings */
+
+
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +9,7 @@
 body {
   font-family: 'Arial', sans-serif;
   background-color: #f4f4f4;
-  color: #333;
+  color:  #5e5b52ff;
 }
 
 /* Navigation Bar */
@@ -46,14 +43,30 @@ body {
 /* Search Bar Container */
 #search-bar-container {
   flex-grow: 1; /* Make search bar take available space */
-  max-width: 500px; /* Limit the width of the search bar */
-  margin: 0 20px; /*Add space between the search bar and profile button */
+  width: 400px; /* Limit the width of the search bar */
+  margin: 0 0px; /*Add space between the search bar and profile button */
+}
+
+.b5 {
+  /* display: flex; */
+  align-items: center;
+  background-color: #d88531ff; 
+  color: whitesmoke;
+  width: 10px;
+  margin-right: 60px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
 }
 
 /* Profile Button Section */
 #navigation div:last-child {
   display: flex;
   align-items: center;
+  /* margin-right: 50px; */
 
 }
 
@@ -63,6 +76,7 @@ body {
   align-items: center;
   background-color: #d88531ff; 
   color: whitesmoke;
+  width: 100%;
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
@@ -88,8 +102,9 @@ body {
   border-radius: 5px;
   border: 3px solid #996888ff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 200px;
+  width: 230px;
   z-index: 1100;
+  margin-right: 20px;
 }
 
 .profile-dropdown li {

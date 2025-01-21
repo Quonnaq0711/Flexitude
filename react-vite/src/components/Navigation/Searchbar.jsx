@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { FaSearch, FaBars, FaFilter } from "react-icons/fa";
-import { NavLink } from "react-router-dom";  
+import {  NavLink } from "react-router-dom";  
 import './Searchbar.css'; 
 
 const SearchBar = () => {
