@@ -1,146 +1,120 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import './UpdateExercise.css';
-import { useSelector } from 'react-redux';
+// import './UpdateExerciseForm.css';
 
-const UpdateExerciseForm = () => {  
-  const { exerciseid } = useParams();
+const UpdateExerciseForm = () => {
   const navigate = useNavigate();
-
-  const musclegroups = ['Arms', 'Shoulders', 'Chest', 'Abdominals', 'Butt/Legs', 'Cardio'];
-  const SETS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
-  const REPS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30'];
-  const TIME = ['0', '30 SECONDS', '45 SECONDS', '60 SECONDS', '2 MINUTES', '5 MINUTES', '10 MINUTES', '15 MINUTES', '20 MINUTES', '25 MINUTES', '30 MINUTES'];
-
-  const [exercise, setExercise] = useState({
+  const { exerciseid } = useParams(); 
+  const [exerciseData, setExerciseData] = useState({
     name: '',
     instructions: '',
     musclegroup: '',
     equipment: '',
     sets: '',
     reps: '',
-    time: ''
+    time: '',
   });
   const [errors, setErrors] = useState({});
-  const [message, setMessage] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const currentUser = useSelector((state) => state.session.user.id);
-console.log("ID", exerciseid)
-  // Fetch exercise data when the component mounts (GET request)
+  
+  const musclegroups = ['Arms', 'Shoulders', 'Chest', 'Abdominals', 'Butt/Legs', 'Cardio']; 
+  const SETS = ['0','1', '2', '3', '4', '5', '6','7', '8', '9', '10'];
+  const REPS = ['0','1', '2', '3', '4', '5', '6','7', '8', '9', '10', '11', '12', '13', '14', '15', '16','17', '18', '19', '20', '21', '22', '23', '24', '25', '26','27', '28', '29', '30'];
+  const TIME = ['0', '30 SECONDS','45 SECONDS','60 SECONDS','2 MINUTES','5 MINUTES', '10 MINUTES','15 MINUTES','20 MINUTES','25 MINUTES','30 MINUTES'];
+
+  
   useEffect(() => {
-    const fetchExercise = async () => {
+    const fetchExerciseData = async () => {
       try {
-        const response = await fetch(`/api/exercise/update/${exerciseid}`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-
-        console.log('Response:', response); // Debugging line
-
-        if (!response.ok) {
-          throw new Error('Failed to fetch exercise');
-        }
-
+        const response = await fetch(`/api/exercise/${exerciseid}`);
         const data = await response.json();
-        setExercise(data.exercises); // Make sure this matches the JSON key
-      } catch (error) {
         
-        setErrors({ fetch: error.message });
+        if (response.ok) {
+          setExerciseData({
+            name: data.name,
+            instructions: data.instructions,
+            musclegroup: data.musclegroup,
+            equipment: data.equipment,
+            sets: data.sets,
+            reps: data.reps,
+            time: data.time,
+          });
+        } else {
+          throw new Error('Failed to fetch exercise data');
+        }
+      } catch (error) {
+        console.error('Error fetching exercise data', error);
+        setErrors({ general: 'Error loading exercise data' });
       }
     };
-// console.log('Error:', error); // Debugging line
-    fetchExercise();
+
+    fetchExerciseData();
   }, [exerciseid]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setExercise((prevState) => ({
-      ...prevState,
+    setExerciseData((prevData) => ({
+      ...prevData,
       [name]: value,
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrors({}); // Reset errors before submitting
 
-    setIsSubmitting(true);
-    setErrors({}); // Reset previous errors
-    setMessage(''); // Reset previous message
-
-    const updatedExercise = {
-      name: exercise.name,
-      instructions: exercise.instructions,
-      musclegroup: exercise.musclegroup,
-      equipment: exercise.equipment,
-      sets: exercise.sets,
-      reps: exercise.reps,
-      time: exercise.time,
-      userid: currentUser,
-    };
-
-    console.log('Sending PUT request with body:', updatedExercise); // Debugging line
-
-    fetch(`/api/exercise/update/${exerciseid}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(updatedExercise),
-    })
-      .then((response) => {
-        console.log('Response:', response); // Debugging line
-        if (response.ok) return response.json();
-        throw new Error('Failed to update exercise');
-      })
-      .then((data) => {
-        if (data.message === 'Exercise updated successfully') {
-          setMessage('Exercise updated successfully!');
-          navigate('/exercise/user');
-        } else {
-          setErrors(data.errors || {});
-        }
-      })
-      .catch((error) => {
-        console.error('Error:', error); // Debugging line
-        setErrors({ update: error.message });
-      })
-      .finally(() => {
-        setIsSubmitting(false);
+    try {
+      const response = await fetch(`/api/exercise/update/${exerciseid}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(exerciseData),
       });
+
+      if (response.ok) {
+        navigate('/exercise/'); 
+      } else {
+        const errorData = await response.json();
+        setErrors(errorData.errors || { general: 'Something went wrong' }); 
+      }
+    } catch (error) {
+      console.error('Error updating exercise', error);
+      setErrors({ general: 'Something went wrong' });
+    }
   };
 
   return (
-    <div className="add-exercise-form">
+    <div className="update-exercise-form">
+      <h2>Update Exercise</h2>
       <form onSubmit={handleSubmit}>
-        <h2>Update Exercise</h2>
         <div>
           <label>Name</label>
           <input
             type="text"
             name="name"
-            value={exercise.name}
+            value={exerciseData.name}
             onChange={handleChange}
             required
           />
+          {errors.name && <p className="error">{errors.name}</p>}
         </div>
 
         <div>
           <label>Instructions</label>
           <textarea
             name="instructions"
-            value={exercise.instructions}
+            value={exerciseData.instructions}
             onChange={handleChange}
             required
           />
+          {errors.instructions && <p className="error">{errors.instructions}</p>}
         </div>
 
         <div>
           <label>Muscle Group</label>
           <select
             name="musclegroup"
-            value={exercise.musclegroup}
+            value={exerciseData.musclegroup}
             onChange={handleChange}
             required
           >
@@ -151,6 +125,7 @@ console.log("ID", exerciseid)
               </option>
             ))}
           </select>
+          {errors.musclegroup && <p className="error">{errors.musclegroup}</p>}
         </div>
 
         <div>
@@ -158,17 +133,18 @@ console.log("ID", exerciseid)
           <input
             type="text"
             name="equipment"
-            value={exercise.equipment}
+            value={exerciseData.equipment}
             onChange={handleChange}
             required
           />
+          {errors.equipment && <p className="error">{errors.equipment}</p>}
         </div>
 
         <div>
           <label>Sets</label>
           <select
             name="sets"
-            value={exercise.sets}
+            value={exerciseData.sets}
             onChange={handleChange}
             required
           >
@@ -178,13 +154,14 @@ console.log("ID", exerciseid)
               </option>
             ))}
           </select>
+          {errors.sets && <p className="error">{errors.sets}</p>}
         </div>
 
         <div>
           <label>Reps</label>
           <select
             name="reps"
-            value={exercise.reps}
+            value={exerciseData.reps}
             onChange={handleChange}
             required
           >
@@ -194,13 +171,14 @@ console.log("ID", exerciseid)
               </option>
             ))}
           </select>
+          {errors.reps && <p className="error">{errors.reps}</p>}
         </div>
 
         <div>
           <label>Time</label>
           <select
             name="time"
-            value={exercise.time}
+            value={exerciseData.time}
             onChange={handleChange}
             required
           >
@@ -210,25 +188,16 @@ console.log("ID", exerciseid)
               </option>
             ))}
           </select>
+          {errors.time && <p className="error">{errors.time}</p>}
         </div>
 
-        {Object.keys(errors).length > 0 && (
-          <div className="error">
-            {Object.values(errors).map((err, index) => (
-              <p key={index}>{err}</p>
-            ))}
-          </div>
-        )}
-
-        {message && <p className="success">{message}</p>}
-
-        <button type="submit" disabled={isSubmitting}>
-          Update Exercise
-        </button>
+        {errors.general && <p className="error">{errors.general}</p>}
+        <button className="b3" type="submit">Update Exercise</button>
       </form>
     </div>
   );
 };
 
 export default UpdateExerciseForm;
+
 

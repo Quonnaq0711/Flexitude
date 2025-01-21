@@ -19,6 +19,8 @@ import ExerciseDetails from '../components/Exercise/ExerciseDetails';
 import EventDetails from '../components/Event/EventDetails';
 import AddEvent from '../components/Event/addEvent';
 import UpdateEventForm from '../components/Event/UpdateEvent';
+import AddWorkoutForm from '../components/Workout/AddWorkout';
+import UpdateWorkoutForm from '../components/Workout/UpdateWorkout';
 
 
 export const router = createBrowserRouter([
@@ -27,15 +29,15 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
+        element: <SignupFormPage />,
+      },
+      {
+        path: "/home",
         element: <HomePage />,
       },
       {
         path: "/login",
         element: <LoginFormPage />,
-      },
-      {
-        path: "signup",
-        element: <SignupFormPage />,
       },
       {
         path: "/user/profile",
@@ -46,7 +48,7 @@ export const router = createBrowserRouter([
         element: <AddExerciseForm />,
       },
       {
-        path: "/exercise/update/:execiseId",
+        path: "/exercise/update/:exerciseid",
         element: <UpdateExerciseForm />,
       },
       {
@@ -96,6 +98,14 @@ export const router = createBrowserRouter([
       {
         path: "/event/update/:eventid",
         element: <UpdateEventForm />,
+      },
+      {
+        path: "/workout/new",
+        element: <AddWorkoutForm />
+      },
+      {
+        path: "/workout/update/:workoutid",
+        element: <UpdateWorkoutForm />
       },
       {
         path: '*',

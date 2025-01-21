@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, TextAreaField, SelectField, SelectMultipleField
+from wtforms import FieldList, StringField, TextAreaField, SelectField, SelectMultipleField
 from wtforms.validators import DataRequired, Length, Optional, ValidationError
 from ..models import Exercise
 from .FormOptions import EXERCISE_TYPES, EXERCISES
@@ -16,6 +16,6 @@ class WorkoutForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired(), Length(min=3, max=50)])
     description = TextAreaField('Description', validators=[DataRequired(), Length(min=10, max=300)])
     exercise_type = SelectField('Exercise Type', choices=EXERCISE_TYPES, validators=[DataRequired()])
-    exercises = SelectMultipleField('Exercises', choices=EXERCISES, coerce=int, validators=[Optional(), validate_exercises])
+    exercises = FieldList(SelectField('Exercises', choices=EXERCISES, coerce=int, validators=[Optional(), validate_exercises]))
     
     

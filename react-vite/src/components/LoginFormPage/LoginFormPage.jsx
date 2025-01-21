@@ -27,16 +27,17 @@ function LoginFormPage() {
     if (serverResponse) {
       setErrors(serverResponse);
     } else {
-      navigate("/");
+      navigate("/home");
     }
   };
 
   return (
     <>
-      <h1>Log In</h1>
+      
       {errors.length > 0 &&
         errors.map((message) => <p key={message}>{message}</p>)}
-      <form onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
+        <h1>Log In</h1>
         <label>
           Email
           <input
@@ -57,7 +58,7 @@ function LoginFormPage() {
           />
         </label>
         {errors.password && <p>{errors.password}</p>}
-        <button type="submit">Log In</button>
+        <button className="b4" type="submit">Log In</button>        
       </form>
     </>
   );

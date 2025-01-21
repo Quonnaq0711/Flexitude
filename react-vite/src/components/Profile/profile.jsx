@@ -40,11 +40,11 @@ function Profile() {
                 <NavLink className='button' to='/event/user'> Your Events</NavLink>
             </div>
 
-            {/* Comments */}
+            {/* Comments
             <div className="manage-container">
                 <h2>Comments</h2>
                 <NavLink className='button' to='/comment/user'> Your Comments</NavLink>
-            </div>
+            </div> */}
         </div>
     );
 }

@@ -39,12 +39,14 @@ function ProfileButton() {
     e.preventDefault();
     dispatch(thunkLogout());
     closeMenu();
+    navigate('/')
   };
     
   const redirectToProfile = () => {
       navigate("/user/profile");
     };
-    
+  
+  
   return (
     <>
       <button onClick={toggleMenu}>

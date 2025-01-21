@@ -1,19 +1,20 @@
 import { useState, useEffect } from 'react'; 
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import './AllWorkouts.css';
 
 const WorkoutList = () => {
   const [workouts, setWorkouts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch('/api/workout/')
       .then(response => response.json())
       .then(data => {
-        console.log(data); // Log the response to see the structure
+        
         if (data && Array.isArray(data.workouts)) {
-          setWorkouts(data.workouts); // Set the workouts array
+          setWorkouts(data.workouts); 
         } else {
           setError('No workouts found');
         }
@@ -33,9 +34,14 @@ const WorkoutList = () => {
     return <p className="loading-message">{error}</p>;
   }
 
+  const AddWorkout = () => {
+    navigate('/workout/new')
+  }
+
   return (
     <div className="list">
       <h1 className='h1'>Workout List</h1>
+      <button className='b2' onClick={AddWorkout}>Add Workout</button>
       <ul>
         {workouts.map(workout => (
           <div key={workout.id} className='div1' >

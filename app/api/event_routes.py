@@ -28,7 +28,7 @@ def events_by_id(eventid):
 
 #Get event by user
 @event_routes.route('/user')
-# @login_required
+@login_required
 def event_by_user():
     events = Event.query.filter(Event.userid == current_user.id).all()
 
@@ -40,7 +40,7 @@ def event_by_user():
 
 #Add New event
 @event_routes.route('/new', methods=['POST'])
-@login_required
+#@login_required
 def add_event():
     form = EventForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -79,7 +79,7 @@ def add_event():
 
 # Update event
 @event_routes.route('/update/<int:eventid>', methods=['GET', 'PUT'])
-#@login_required
+@login_required
 def update_event(eventid):
     event = Event.query.get(eventid)
     if not event:
@@ -108,7 +108,7 @@ def update_event(eventid):
 
 #Delete event
 @event_routes.route('delete/<eventid>', methods=['DELETE'])
-# @login_required
+@login_required
 def delete_event(eventid):
     event = Event.query.get(eventid)
 

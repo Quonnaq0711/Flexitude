@@ -8,7 +8,6 @@ const AddEventForm = () => {
   const [workouts, setWorkouts] = useState([]);
   const currentUser = useSelector((state) => state.session.user.id);
     const [form, setForm] = useState({
-    id: currentUser,
     title: '',
     startdate: '',
     enddate: '',

@@ -128,7 +128,7 @@ def seed_exercises():
         musclegroup='Abs',
         equipment='None',
         sets=0,
-        reps="20 seconds"
+        time="30 seconds"
         )
     abdominals2 = Exercise(
         userid=1,
@@ -191,7 +191,7 @@ def seed_exercises():
         musclegroup='Cardio',
         equipment= 'None (Optional: Treadmill)',
         sets=0,
-        reps="5 minutes"
+        time="5 minutes"
         )
     cardio1 = Exercise(
         userid=3,
@@ -200,7 +200,7 @@ def seed_exercises():
         musclegroup='Cardio',
         equipment= 'None (Optional: Treadmill)',
         sets=0,
-        reps="30 minutes"
+        time="30 minutes"
         )
     cardio2 = Exercise(
         userid=1,
@@ -218,7 +218,7 @@ def seed_exercises():
         musclegroup='Cardio',
         equipment= 'Stairs or Stair Climber Machine',
         sets=3,
-        reps='15 minutes'
+        time='15 minutes'
         )
     db.session.add(arms)
     db.session.add(arm1)

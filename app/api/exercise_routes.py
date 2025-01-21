@@ -51,7 +51,7 @@ def exercise_by_user():
 
 # Add New Exercise
 @exercise_routes.route('/new', methods=['POST'])
-@login_required
+#@login_required
 def add_exercise():
     form = ExerciseForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -83,48 +83,34 @@ def add_exercise():
 
 
 # Update Exercise
-@exercise_routes.route('/update/<int:exerciseid>', methods=['GET', 'PUT'])
+@exercise_routes.route('/update/<int:exercise_id>', methods=['PUT'])
 @login_required
-def update_exercise(exerciseid):
-    # Fetch the exercise by ID
-    exercise = Exercise.query.get(exerciseid)
+def update_exercise(exercise_id):
+    # Retrieve the exercise by ID
+    exercise = Exercise.query.get_or_404(exercise_id)
     
-    if request.method == 'GET':
-        if not exercise:
-            return jsonify({'message': 'Exercise doesn\'t exist'}), 404
-        return jsonify({'exercise': exercise.to_dict()}), 200
-    
+    # Ensure the current user owns the exercise or is an admin
     if exercise.userid != current_user.id:
-        return jsonify({'message': 'Unauthorized: You cannot edit this exercise'}), 401        
+        return jsonify({"error": "Unauthorized"}), 403
+    
+    data = request.get_json()
+    
+    # Update exercise fields
+    exercise.name = data.get('name', exercise.name)
+    exercise.instructions = data.get('instructions', exercise.instructions)
+    exercise.musclegroup = data.get('musclegroup', exercise.musclegroup)
+    exercise.equipment = data.get('equipment', exercise.equipment)
+    exercise.sets = data.get('sets', exercise.sets)
+    exercise.reps = data.get('reps', exercise.reps)
+    exercise.time = data.get('time', exercise.time)
+    
+    try:
+        db.session.commit()
+        return jsonify({'message': 'Exercise updated successfully', 'exercise': exercise.to_dict()}), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 400
 
-    # Handle PUT request - Update exercise details
-    if request.method == 'PUT':
-        form = ExerciseForm()
-        form['csrf_token'].data = request.cookies['csrf_token']
-
-        # Validate form and update the exercise data
-        if form.validate_on_submit():
-            exercise.userid = current_user.id
-            exercise.name = form.name.data
-            exercise.instructions = form.instructions.data
-            exercise.musclegroup = form.musclegroup.data
-            exercise.equipment = form.equipment.data
-            exercise.sets = form.sets.data
-            exercise.reps = form.reps.data
-            exercise.time = form.time.data
-
-            db.session.commit()
-
-            return jsonify({
-                'message': 'Exercise updated successfully',
-                'exercise': exercise.to_dict()  # This should be 'exercise'
-            }), 200
-
-        # If form validation fails, return errors
-        return jsonify({
-            'message': 'Invalid Exercise data',
-            'errors': form.errors
-        }), 400
 
 
 
