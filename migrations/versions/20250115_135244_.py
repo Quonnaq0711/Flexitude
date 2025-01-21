@@ -58,7 +58,7 @@ def upgrade():
     sa.Column('startdate', sa.TIMESTAMP(), nullable=False),
     sa.Column('enddate', sa.TIMESTAMP(), nullable=False),
     sa.Column('description', sa.Text(), nullable=False),
-    sa.Column('workoutid', sa.Integer(), nullable=False),
+    sa.Column('workoutid', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['userid'], ['user.id'], ),
     sa.ForeignKeyConstraint(['workoutid'], ['workouts.id'], ),
     sa.PrimaryKeyConstraint('id')
