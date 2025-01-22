@@ -28,9 +28,27 @@ function LoginFormModal() {
     }
   };
 
+   // Demo User credentials
+   const demoUser = {
+    email: "demo@aa.io",
+    password: "password",
+  };
+
+  const handleDemoLogin = (e) => {
+    e.preventDefault();
+
+    // Dispatching the login action for demo user
+    dispatch(thunkLogin(demoUser))
+      .then(() => {
+        closeModal();
+      })
+      .catch((error) => {
+        console.error("Login failed", error); // Handle error if login fails
+      });
+  };
+
   return (
-    <>
-      
+    <>      
       <form className="form-container" onSubmit={handleSubmit}>
         <h1 className="form-header" >Log In</h1>
         <label>
@@ -53,7 +71,8 @@ function LoginFormModal() {
           />
         </label>
         {errors.password && <p>{errors.password}</p>}
-        <button type="submit">Log In</button>
+        <button  className='b1' type="submit">Log In</button>
+        <button className='b1' type="submit" onClick={handleDemoLogin}>Demo Login</button>
       </form>
     </>
   );
