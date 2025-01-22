@@ -131,9 +131,10 @@ console.log('ID',workoutid)
 
   return (
     <div className="update-workout-form">
-      <h2>Update Workout</h2>
+      
       <form onSubmit={handleSubmit}>
         <div>
+          <h2>Update Workout</h2>
           <label>Title</label>
           <input
             type="text"

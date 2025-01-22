@@ -75,10 +75,11 @@
       }
       
       /* Submit Button Styling */
-      button {
+      .b1 {
         padding: 12px 20px;
         background-color: #d88531ff;
         color: whitesmoke;
+        margin-left: 50px;
         border: none;
         border-radius: 5px;
         cursor: pointer;
