@@ -39,7 +39,7 @@ The front-end is built with React, Redux (with normalized data), and CSS, while 
 - **User Authentication**:
   - Sign Up
   - Login / Logout
-  - Demo Login (To log in as a demo user, you can click the "Already a User?" link at the bottom of the sign-up page. You can also access this feature through the profile button in the upper right corner of any page.)
+  - Demo Login (To log in as a demo user, you can click the "Already a User?" link at the bottom of the sign-up page. You can also access this feature through the profile button in the upper right corner within the login sequence.)
 ---
 
 ### Usage
@@ -54,7 +54,7 @@ The front-end is built with React, Redux (with normalized data), and CSS, while 
 ![Database Schema](https://github.com/Quonnaq0711/Flexitude/blob/fd897db3fc55228c766f219c41828d7aa2a52769/react-vite/src/images/flexitude_scheme.png)
 
 ## Flexitude - Live Link
-![https://flexitude1.onrender.com]
+[https://flexitude1.onrender.com]
 
 
 
