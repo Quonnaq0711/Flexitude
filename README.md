@@ -47,7 +47,8 @@ The front-end is built with React, Redux (with normalized data), and CSS, while 
 * Demo User: You can quickly log in with a demo user by clicking the "Demo User Login" button.
 * Exercise: Users can create, view, update, and delete exercises.
 * Workout: Users can create, view, update, and delete workouts.
-* Event: users can create, view, update and delete events.
+* Event: Users can create, view, update and delete events.
+* Search: Filters through exercises by name and muscle group.
 
 ### Database Schema Design
 
