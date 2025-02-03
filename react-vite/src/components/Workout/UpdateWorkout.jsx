@@ -199,7 +199,7 @@ console.log('ID',workoutid)
 
         {message && <p className="success">{message}</p>}
 
-        <button type="submit" disabled={isSubmitting}>
+        <button  className='b3' type="submit" disabled={isSubmitting}>
           {isSubmitting ? 'Updating...' : 'Update Workout'}
         </button>
       </form>

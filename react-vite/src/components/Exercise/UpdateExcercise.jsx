@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-// import './UpdateExerciseForm.css';
+// import './UpdateExercise.css';
 
 const UpdateExerciseForm = () => {
   const navigate = useNavigate();
@@ -85,8 +85,9 @@ const UpdateExerciseForm = () => {
 
   return (
     <div className="update-exercise-form">
-      <h2>Update Exercise</h2>
+     
       <form onSubmit={handleSubmit}>
+        <h2>Update Exercise</h2>
         <div>
           <label>Name</label>
           <input
