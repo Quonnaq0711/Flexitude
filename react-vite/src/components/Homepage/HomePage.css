@@ -15,7 +15,7 @@
   .Title {
     text-align: center;
     margin-top: 20px;
-    margin-bottom: -50px;
+    margin-bottom: -150px;
   }
   
   .Title h1 {
@@ -76,7 +76,7 @@
   /* About Section */
   .about {
     max-width: 800px;
-    margin-top: -50px;
+    margin-top: -100px;
     margin-bottom: 40px;
     line-height: 1.6;
     text-align: center;
@@ -85,7 +85,7 @@
   }
   
   .about p {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     color: whitesmoke;
     font-size: large;
   }
