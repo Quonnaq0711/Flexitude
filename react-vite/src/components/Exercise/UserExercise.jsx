@@ -65,8 +65,14 @@ const UserExerciseList = () => {
     return <div>{error}</div>;
   }
 
+  const back1 = () => {
+    navigate('/user/profile')
+  }
+
   return (
+  <><button className='back' onClick={back1}>Back</button>
     <div className='div'>
+      
       <h2>Your Exercises</h2>
       <ul>
         {exercises.map((exercise) => (
@@ -85,7 +91,8 @@ const UserExerciseList = () => {
             </li>
         ))}
       </ul>
-    </div>
+      </div>
+    </>
   );
 };
 

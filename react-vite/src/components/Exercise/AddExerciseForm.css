@@ -11,7 +11,7 @@ html body {
 
 form {
     max-width: 600px;
-    margin-top: 150px;
+    margin-top: 170px;
     margin-left:380px;
     margin-bottom: 15px;
     padding: 20px;
@@ -24,6 +24,13 @@ form {
     width: 45%;
     margin-left: 150px;
     margin-bottom: 15px;
+  }
+
+  .back {
+    width: 15%;
+    margin-top: 150px;
+    margin-left: 10px;
+    margin-bottom: -150px;
   }
   
   h2 {

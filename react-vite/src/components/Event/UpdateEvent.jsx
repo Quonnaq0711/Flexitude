@@ -40,7 +40,9 @@ const UpdateEventForm = () => {
       } catch (error) {
         setErrors({ fetch: error.message });
       }
-    };
+      };
+    
+    
     
     
     const fetchWorkouts = async () => {
@@ -126,7 +128,13 @@ const handleChange = (e) => {
       });
   };
 
+  const back1 = () => {
+      navigate('/event/user')
+  }
+  
   return (
+    <>
+      <button className='back' onClick={back1}>Back</button>
     <div className="update-event-form">
       <form onSubmit={handleSubmit}>
         <h2>Update Event</h2>
@@ -203,7 +211,8 @@ const handleChange = (e) => {
           Update Event
         </button>
       </form>
-    </div>
+      </div>
+      </>
   );
 };
 
