@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-// import './addevent.css';
+// import './AddEventForm.css';
 
 const AddEventForm = () => {
   const navigate = useNavigate();
@@ -106,7 +106,26 @@ const AddEventForm = () => {
       });
   };
 
+  const random = () => {
+    alert('Feature Coming Soon...')
+  }
+
   return (
+    <>
+      <div className="Links">
+                            <NavLink to={'/exercise/' } className='buttonlink'>
+                              Exercises  
+                            </NavLink>
+                            <NavLink to={'/workout/'} className='buttonlink'>
+                                Workouts
+                            </NavLink>
+                            <NavLink to={'/event/'} className='buttonlink'>
+                                Events
+                            </NavLink>
+                            <NavLink onClick={random} className='buttonlink1'>
+                                Randomizer
+                            </NavLink>
+                        </div>
     <div className="add-event-form">
       <form onSubmit={handleSubmit}>
         <h2>Create New Event</h2>
@@ -180,8 +199,9 @@ const AddEventForm = () => {
           Create Event
         </button>
       </form>
-    </div>
-  );
+      </div>
+    </>
+      );   
 };
 
 export default AddEventForm;

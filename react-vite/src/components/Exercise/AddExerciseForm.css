@@ -4,9 +4,14 @@
 html body {
   background-color:  #5e5b52ff;;
 }
+
+.Links {
+  margin: 150px;
+}
 form {
     max-width: 600px;
-    margin: 170px;
+    margin-top: -90px;
+    margin-left:710px;
     padding: 20px;
     background-color: #2e0014ff;
     border-radius: 8px;

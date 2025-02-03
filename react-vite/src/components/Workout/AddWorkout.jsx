@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const AddWorkoutForm = () => {
@@ -111,9 +111,27 @@ const AddWorkoutForm = () => {
     }
   };
 
+  const random = () => {
+    alert('Feature Coming Soon...')
+  }
+
   return (
+    <>
     <div className="add-workout-form">
-      
+    <div className="Links">
+                      <NavLink to={'/exercise/' } className='buttonlink'>
+                        Exercises  
+                      </NavLink>
+                      <NavLink to={'/workout/'} className='buttonlink'>
+                          Workouts
+                      </NavLink>
+                      <NavLink to={'/event/'} className='buttonlink'>
+                          Events
+                      </NavLink>
+                      <NavLink onClick={random} className='buttonlink1'>
+                          Randomizer
+                      </NavLink>
+                  </div>
       <form onSubmit={handleSubmit}>
         <h2>Create New Workout</h2>
         <div>
@@ -187,7 +205,8 @@ const AddWorkoutForm = () => {
           Create Workout
         </button>
       </form>
-    </div>
+      </div>
+    </>
   );
 };
 

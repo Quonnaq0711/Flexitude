@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createExercise } from '../../redux/exercise';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
 import './AddExerciseForm.css';
 
 const AddExerciseForm = () => {
@@ -56,9 +56,27 @@ const AddExerciseForm = () => {
     }
   };
 
+  const random = () => {
+    alert('Feature Coming Soon...')
+}
+
   return (
-    <div className="add-exercise-form">
-      
+    <>
+      <div className="Links">
+                      <NavLink to={'/exercise/' } className='buttonlink'>
+                        Exercises  
+                      </NavLink>
+                      <NavLink to={'/workout/'} className='buttonlink'>
+                          Workouts
+                      </NavLink>
+                      <NavLink to={'/event/'} className='buttonlink'>
+                          Events
+                      </NavLink>
+                      <NavLink onClick={random} className='buttonlink1'>
+                          Randomizer
+                      </NavLink>
+                  </div>
+    <div className="add-exercise-form">      
       <form onSubmit={handleSubmit}>
         <div>
           <h2>Add New Exercise</h2>
@@ -168,7 +186,8 @@ const AddExerciseForm = () => {
         {errors.general && <p className="error">{errors.general}</p>}
         <button className='b3' type="submit">Add Exercise</button>
       </form>
-    </div>
+      </div>
+    </>
   );
 };
 
