@@ -16,7 +16,7 @@ h2 {
 .userbutton {
     display: inline-flex;
     justify-content: space-evenly;
-    width: 75%;
+    width: 80%;
     gap: 15px;
 }
 
