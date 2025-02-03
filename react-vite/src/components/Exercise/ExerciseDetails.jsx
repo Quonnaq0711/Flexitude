@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import './ExerciseDetails.css';
 
 function ExerciseDetails() {
@@ -7,6 +7,7 @@ function ExerciseDetails() {
   const [exercise, setExercise] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch exercise details from the backend
@@ -46,7 +47,13 @@ function ExerciseDetails() {
     return <div>Error: {error}</div>;
   }
 
+  const back1 = () => {
+    navigate('/exercise/')
+  }
+
   return (
+    <>
+      <button className='back' onClick={back1}>Back</button>
     <div className='wd1' >
       <h1>{exercise.name}</h1>         
       <p className='p1'>Equipment: {exercise.equipment}</p>
@@ -55,7 +62,8 @@ function ExerciseDetails() {
       <p className='p1'>Reps: {exercise.reps}</p>
       <p className='p1'>Sets: {exercise.sets}</p>
       <p className='p1'>Time: {exercise.time}</p>     
-    </div>
+      </div>
+      </>
   );
 }
 

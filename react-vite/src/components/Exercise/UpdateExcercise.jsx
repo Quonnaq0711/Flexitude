@@ -83,9 +83,13 @@ const UpdateExerciseForm = () => {
     }
   };
 
+  const back = () => {
+    navigate('/exercise/user')
+  }
+
   return (
     <div className="update-exercise-form">
-     
+     <button className='back' onClick={back}>Back</button>
       <form onSubmit={handleSubmit}>
         <h2>Update Exercise</h2>
         <div>

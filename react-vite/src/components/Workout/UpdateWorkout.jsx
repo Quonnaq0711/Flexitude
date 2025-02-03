@@ -129,9 +129,14 @@ console.log('ID',workoutid)
     }
   };
 
+  const back = () => {
+    navigate('/workout/user')
+  }
+
   return (
-    <div className="update-workout-form">
       
+    <div className="update-workout-form">
+      <button className='back' onClick={back}>Back</button>  
       <form onSubmit={handleSubmit}>
         <div>
           <h2>Update Workout</h2>
@@ -202,8 +207,10 @@ console.log('ID',workoutid)
         <button  className='b3' type="submit" disabled={isSubmitting}>
           {isSubmitting ? 'Updating...' : 'Update Workout'}
         </button>
+        
       </form>
     </div>
+    
   );
 };
 
