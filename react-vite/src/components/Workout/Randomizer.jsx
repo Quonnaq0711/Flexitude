@@ -153,7 +153,7 @@ const RandomizerForm = () => {
           <NavLink to={'/event/'} className='buttonlink'>
             Events
           </NavLink>
-          <NavLink onClick={randomizeExercises} className='buttonlink1'>
+          <NavLink to={'/random/'} className='buttonlink'>
             Randomizer
           </NavLink>
         </div>
@@ -195,7 +195,8 @@ const RandomizerForm = () => {
                 </option>
               ))}
             </select>
-          </div>
+                  </div>
+                  <button onClick={randomizeExercises}>Randomize Exercise</button>
 
           <div>
             <label>Exercises</label>
