@@ -9,17 +9,18 @@ const RandomizerForm = () => {
     title: '',
     description: '',
     exercise_type: '',
-    exercises: [],
+    exercises: ['', '', '', '', '', '', '', ''],
   });
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const currentUser = useSelector((state) => state.session.user.id);
 
-  const exercise_types = [
-    'Abdominal Exercises', 'Agility Drills', 'CrossFit', 'HIIT', 'Stretching', 
-    'Cardio', 'Strength Training', 'Weightlifting', 'Bodyweight', 'Other'
-  ];
+  const exercise_types = ['Arms', 'Shoulders', 'Chest', 'Abdominals', 'Butt/Legs',
+    'Agility Drills', 'CrossFit', 'HIIT', 'Stretching',
+    'Strength Training', 'Weightlifting', 'Bodyweight',
+    'Other'
+   ];
 
   useEffect(() => {
     const fetchExercises = async () => {
@@ -62,7 +63,7 @@ const RandomizerForm = () => {
     if (!form.title) formErrors.title = "Title is required";
     if (!form.description) formErrors.description = "Description is required";
     if (!form.exercise_type) formErrors.exercise_type = "Exercise type is required";
-    if (form.exercises.length === 0) formErrors.exercises = "At least one exercise must be selected";
+   if (form.exercises.length === 0) formErrors.exercises = "No Exercises Available";
     return formErrors;
   };
 
@@ -100,7 +101,7 @@ const RandomizerForm = () => {
 
       if (data.message === 'Workout created successfully') {
         setMessage('Workout created successfully!');
-        navigate('/workout/'); // Redirect to workout list or another page
+        // navigate('/workout/'); // Redirect to workout list 
       } else {
         setErrors(data.errors || {});
       }
@@ -118,14 +119,14 @@ const RandomizerForm = () => {
     }
 
     const filteredExercises = exercises.filter(
-      (exercise) => exercise.type === form.exercise_type
+      (exercise) => exercise.musclegroup === form.exercise_type
     );
 
     // Randomly select exercises up to 8
     const selectedExercises = [];
     const totalExercises = Math.min(8, filteredExercises.length);
 
-    while (selectedExercises.length < totalExercises) {
+    while (selectedExercises.length <= totalExercises) {
       const randomIndex = Math.floor(Math.random() * filteredExercises.length);
       const selectedExercise = filteredExercises[randomIndex];
       if (!selectedExercises.includes(selectedExercise.id)) {
@@ -140,10 +141,11 @@ const RandomizerForm = () => {
     setErrors({});
   };
     
-    const handleClear = () => {
+  const handleClear = () => {
+      e.preventDefault()
         setForm((prevState) => ({
             ...prevState,
-            exercises: [],
+            exercises: ['', '', '', '', '', '', '', ''],
         }));
         setErrors({})
     };
@@ -173,7 +175,7 @@ const RandomizerForm = () => {
                   <p> 3. Customize Workout: The selected exercises will be automatically populated in your workout plan. You can tweak the number of exercises or choose from the available options.</p>
                   <p> 4. Save Your Workout: After finalizing the workout, click Save Workout to save your new routine. Your workout will be saved with a title, description, and the list of selected exercises.</p>
             </div>
-        <form onSubmit={handleSubmit}>
+            <form >
           <h2>Create a New Randomized Workout</h2>
           <div>
             <label>Title</label>
@@ -212,7 +214,7 @@ const RandomizerForm = () => {
               ))}
             </select>
                   </div>
-                  <button onClick={randomizeExercises}>Randomize Exercise</button>
+                  <button onClick={randomizeExercises}>Randomize Workout</button>
 
           <div>
             <label>Exercises</label>
@@ -246,7 +248,7 @@ const RandomizerForm = () => {
                   
                   <button className='clear-btn' onClick={handleClear}>Clear</button>
 
-          <button type="submit" disabled={isSubmitting}>
+          <button type="button" onClick={handleSubmit} disabled={isSubmitting}>
            Save Workout
           </button>
         </form>
@@ -256,3 +258,89 @@ const RandomizerForm = () => {
 };
 
 export default RandomizerForm;
+
+
+
+
+/*
+const handleClear = (e) => {
+    e.preventDefault();  // Prevent form submission
+    setForm((prevState) => ({
+        ...prevState,
+        exercises: ['', '', '', '', '', '', '', ''], // Reset exercises as well
+    }));
+    setErrors({});
+};
+
+
+
+const randomizeExercises = () => {
+    if (!form.exercise_type) {
+        setErrors({ exercise_type: 'Please select an exercise type' });
+        return;
+    }
+
+    const filteredExercises = exercises.filter(
+        (exercise) => exercise.musclegroup === form.exercise_type
+    );
+
+    if (filteredExercises.length === 0) {
+        setErrors({ exercise_type: 'No exercises available for this type' });
+        return;
+    }
+
+    // Shuffle the filteredExercises array
+    const shuffledExercises = [...filteredExercises].sort(() => Math.random() - 0.5);
+
+    // Select up to 8 exercises
+    const selectedExercises = shuffledExercises.slice(0, 8).map((exercise) => exercise.id);
+
+    setForm((prevState) => ({
+        ...prevState,
+        exercises: selectedExercises,
+    }));
+    setErrors({});
+};
+
+
+
+const [loading, setLoading] = useState(true);
+
+useEffect(() => {
+    const fetchExercises = async () => {
+        try {
+            const response = await fetch('/api/exercise/', {
+                method: 'GET',
+                headers: { 'Content-Type': 'application/json' },
+            });
+
+            if (!response.ok) throw new Error('Failed to fetch exercises');
+            const data = await response.json();
+            setExercises(data.exercises);
+        } catch (error) {
+            setErrors({ fetch: error.message });
+        } finally {
+            setLoading(false); // Set loading to false when fetch is complete
+        }
+    };
+
+    fetchExercises();
+}, []);
+
+
+{loading && <p>Loading exercises...</p>}
+
+
+<button type="button" onClick={handleSubmit} disabled={isSubmitting || Object.keys(errors).length > 0}>
+    Save Workout
+</button>
+
+
+
+if (data.message === 'Workout created successfully') {
+    setMessage('Workout created successfully!');
+    navigate('/workout/'); // Redirect to workout list
+} else {
+    setErrors(data.errors || {});
+}
+ */

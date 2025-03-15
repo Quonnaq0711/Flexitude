@@ -21,6 +21,7 @@ import AddEvent from '../components/Event/addEvent';
 import UpdateEventForm from '../components/Event/UpdateEvent';
 import AddWorkoutForm from '../components/Workout/AddWorkout';
 import UpdateWorkoutForm from '../components/Workout/UpdateWorkout';
+import RandomizerForm from '../components/Workout/Randomizer';
 
 
 
@@ -107,6 +108,10 @@ export const router = createBrowserRouter([
       {
         path: "/workout/update/:workoutid",
         element: <UpdateWorkoutForm />
+      },
+      {
+        path: "/workout/randomizer",
+        element: <RandomizerForm />
       },
       {
         path: '*',

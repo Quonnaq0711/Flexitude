@@ -7,6 +7,10 @@ name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
 
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+
 [packages]
 alembic = "==1.9.2"
 click = "==8.1.3"
