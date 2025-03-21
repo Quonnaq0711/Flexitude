@@ -1,0 +1,29 @@
+.wd2 {
+    max-width: 1200px;
+    margin: 30px auto;
+    margin-top: -95px;
+    padding: 20px;
+    background-color: #2e0014ff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+form {
+    max-width: 600px;
+    margin-top: 50px;
+    margin-left: 450px;
+    margin-bottom: 15px;
+    padding: 20px;
+    background-color: #2e0014ff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+h3 {
+    color:#5e5b52ff;
+  }
+  
+.p2 {
+    color: #5e5b52ff;
+  }
+

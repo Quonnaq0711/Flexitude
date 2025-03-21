@@ -12,11 +12,14 @@ def seed_user():
         firstname='Bob',lastname='bobert',username='bobbie', email='bobbie@aa.io', password='password')
     alexa = User(
         firstname='Alexa', lastname='ai', username='Lexy', email='Amazon@prime.com', password='password')
+    chuckie = User(
+        firstname='Chuckster', lastname='Cat', username='Mittens', email='TheMeow@catnip.com', password='password')
     
     db.session.add(demo)
     db.session.add(marnie)
     db.session.add(bobbie)
     db.session.add(alexa)
+    db.session.add(chuckie)
     db.session.commit()
 
 

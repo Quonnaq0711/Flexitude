@@ -4,9 +4,9 @@ import "./HomePage.css";
 
 function HomePage() {
 
-    const random = () => {
-        alert('Feature Coming Soon...')
-    }
+    // const random = () => {
+    //     alert('Feature Coming Soon...')
+    // }
 
     return (
         <div className="home-page-container">
@@ -24,7 +24,7 @@ function HomePage() {
                 <NavLink to={'/event/'} className='buttonlink'>
                     Events
                 </NavLink>
-                <NavLink onClick={random} className='buttonlink1'>
+                <NavLink to={'/workout/randomizer'} className='buttonlink1'>
                     Randomizer
                 </NavLink>
             </div>

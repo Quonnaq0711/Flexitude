@@ -9,7 +9,7 @@ const AddWorkoutForm = () => {
     title: '',
     description: '',
     exercise_type: '',
-    exercises: ['', '', '', '', '', ''],
+    exercises: ['', '', '', '', '', '', '', ''],
   });
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState('');
@@ -111,9 +111,9 @@ const AddWorkoutForm = () => {
     }
   };
 
-  const random = () => {
-    alert('Feature Coming Soon...')
-  }
+  // const random = () => {
+  //   alert('Feature Coming Soon...')
+  // }
 
   return (
     <>
@@ -128,7 +128,7 @@ const AddWorkoutForm = () => {
                       <NavLink to={'/event/'} className='buttonlink'>
                           Events
                       </NavLink>
-                      <NavLink onClick={random} className='buttonlink1'>
+                      <NavLink to={'/workout/randomizer'} className='buttonlink1'>
                           Randomizer
                       </NavLink>
                   </div>
@@ -173,7 +173,7 @@ const AddWorkoutForm = () => {
         </div>
 
         <div>
-          <label>Exercises (up to 6)</label>
+          <label>Exercises (up to 8)</label>
           {form.exercises.map((exercise, index) => (
             <select
               key={index}

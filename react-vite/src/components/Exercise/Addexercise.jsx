@@ -62,9 +62,9 @@ const AddExerciseForm = () => {
 
   
 
-  const random = () => {
-    alert('Feature Coming Soon...')
-}
+//   const random = () => {
+//     alert('Feature Coming Soon...')
+// }
 
   return (
     <>
@@ -78,7 +78,7 @@ const AddExerciseForm = () => {
                       <NavLink to={'/event/'} className='buttonlink'>
                           Events
                       </NavLink>
-                      <NavLink onClick={random} className='buttonlink1'>
+                      <NavLink to={'/workout/randomizer'} className='buttonlink1'>
                           Randomizer
                       </NavLink>
                   </div>

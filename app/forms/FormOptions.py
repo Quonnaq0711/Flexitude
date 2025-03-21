@@ -1,6 +1,6 @@
 from ..models import Workout, Exercise
 
-MUSCLE_GROUP = [('Arms'),('Shoulders'),('Chest'),('Abdominals'),('Butt/Legs'),('Cardio')]
+MUSCLE_GROUP = [('Arms'),('Shoulders'),('Chest'),('Abs'),('Butt'),('Cardio'),('Legs'),]
 
 SETS = [(str(i), str(i)) for i in range(1,10)]
 

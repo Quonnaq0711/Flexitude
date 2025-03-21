@@ -11,9 +11,9 @@ function Profile() {
         return <Navigate to="/login" />;
     }
 
-    const random = () => {
-        alert('Feature Coming Soon...')
-    }
+    // const random = () => {
+    //     alert('Feature Coming Soon...')
+    // }
 
     return (
         <div className="ProfilePage">
@@ -36,7 +36,7 @@ function Profile() {
                 <NavLink to={'/event/'} className='Probutton'>
                     Events
                 </NavLink>
-                <NavLink onClick={random} className='Probutton'>
+                <NavLink to={'/workout/randomizer'} className='Probutton'>
                     Randomizer
                 </NavLink>
             </div>

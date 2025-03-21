@@ -8,7 +8,7 @@ const UpdateWorkoutForm = () => {
     title: '',
     description: '',
     exercise_type: '',
-    exercises: ['', '', '', '', '', ''], // Array for up to 6 exercises
+    exercises: ['', '', '', '', '', '', '', ''], // Array for up to 6 exercises
   });
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState('');
