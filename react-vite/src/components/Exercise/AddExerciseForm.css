@@ -7,20 +7,10 @@ html body {
 
 .Links {
   margin: 150px;
+  margin-bottom: -10;
 }
 
-form {
-    max-width: 600px;
-    margin-top: 170px;
-    margin-left:375px;
-    margin-bottom: 15px;
-    padding: 20px;
-    background-color: #2e0014ff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-
-  .b3{
+.b3{
     width: 45%;
     margin-left: 150px;
     margin-bottom: 15px;

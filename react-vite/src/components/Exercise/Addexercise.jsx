@@ -78,7 +78,7 @@ const AddExerciseForm = () => {
                       <NavLink to={'/event/'} className='buttonlink'>
                           Events
                       </NavLink>
-                      <NavLink to={'/workout/randomizer'} className='buttonlink1'>
+                      <NavLink to={'/workout/randomizer'} className='buttonlink'>
                           Randomizer
                       </NavLink>
                   </div>

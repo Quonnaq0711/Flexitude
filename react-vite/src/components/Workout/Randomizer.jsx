@@ -154,7 +154,7 @@ const RandomizerForm = () => {
   return (
       <>
       <div className="add-workout-form">
-        <div className="Links">
+        <div className="RamLinks">
           <NavLink to={'/exercise/'} className='buttonlink'>
             Exercises  
           </NavLink>
