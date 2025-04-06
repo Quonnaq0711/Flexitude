@@ -1,6 +1,6 @@
-.update-exercise-form {
+/* .update-exercise-form {
     max-width: 500px;
-    /* margin: 860px; */
+    margin-top: 360px;
     padding: 0px;
     background-color:  #5e5b52ff;
     border-radius: 8px;
@@ -15,7 +15,6 @@
   .update-exercise-form form {
     display: flex;
     flex-direction: column;
-    /* margin-top: 860px; */
   }
   
   .update-exercise-form label {
@@ -49,4 +48,4 @@
     color: red;
     font-size: 0.9rem;
   }
-  
+   */

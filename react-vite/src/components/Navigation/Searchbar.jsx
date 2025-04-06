@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { FaSearch, FaBars, FaFilter } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 import {  NavLink } from "react-router-dom";  
 import './Searchbar.css'; 
 
@@ -15,7 +15,11 @@ const SearchBar = () => {
   const [showResults, setShowResults] = useState(false);
 
   // List of sample muscle groups for dropdown 
-  const muscleGroups = ['Chest', 'Cardio', 'Butt/Legs', 'Arms', 'Shoulders', 'Abs'];
+  const muscleGroups = ['Arms', 'Shoulders', 'Chest', 'Abs', 'Butt', 'Legs',
+    'Agility Drills', 'CrossFit', 'HIIT', 'Stretching',
+    'Strength Training', 'Weightlifting', 'Bodyweight',
+    'Other'
+  ];
 
   // Refs for the dropdown and results container
   const dropdownRef = useRef(null);
@@ -97,35 +101,8 @@ const SearchBar = () => {
           >
             <FaBars />
           </button>
-
-          {showFilters && (
-            <div className="filters">
-              <div className="filter">
-                <label htmlFor="musclegroup">Muscle Group</label>
-                <select
-                  id="musclegroup"
-                  value={musclegroup}
-                  onChange={handleFilterChange}
-                >
-                  <option value="">All Muscle Groups</option>
-                  {muscleGroups.map((group, index) => (
-                    <option key={index} value={group}>{group}</option>
-                  ))}
-                </select>
-              </div>
-
-              <button 
-                className="filter-button" 
-                aria-label="Apply filters"
-                onClick={() => setShowFilters(false)}  
-              >
-                <FaFilter />
-              </button>
-            </div>
-          )}
-        </div>
-
-        {/* Search Input */}
+          
+          {/* Search Input */}
         <div className="search-input-container">
           <input
             type="text"
@@ -133,10 +110,25 @@ const SearchBar = () => {
             onChange={handleSearchChange}
             placeholder="Search exercises..."
             aria-label="Search exercises"
-          />
-          <button className="search-button" aria-label="Search">
-            <FaSearch />
-          </button>
+          />          
+          </div>          
+          {showFilters && (
+            <div className="filters">
+              <div className="filter">
+                <label>Muscle Group</label>
+                <select
+                  type="musclegroup"
+                  value={musclegroup}
+                  onChange={handleFilterChange}
+                  >
+                  <option value="">All Muscle Groups</option>
+                  {muscleGroups.map((group, index) => (
+                    <option key={index} value={group}>{group}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
@@ -148,7 +140,7 @@ const SearchBar = () => {
           {showResults && exercises.length > 0 && (
             <ul className="results">
               {exercises.map((exercise, index) => (
-                <li key={index}>
+                <div key={index}>
                   <NavLink
                     to={`/exercise/${exercise.id}`}  
                     className="result-link"
@@ -156,7 +148,7 @@ const SearchBar = () => {
                   >
                     {exercise.name}
                   </NavLink>
-                </li>
+                </div>
               ))}
             </ul>
           )}

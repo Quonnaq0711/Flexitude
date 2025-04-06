@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 // import './UpdateExercise.css';
 
 const UpdateExerciseForm = () => {
-  const navigate = useNavigate();
+  const nav = useNavigate();
   const { exerciseid } = useParams(); 
   const [exerciseData, setExerciseData] = useState({
     name: '',
@@ -72,7 +72,7 @@ const UpdateExerciseForm = () => {
       });
 
       if (response.ok) {
-        navigate('/exercise/'); 
+        nav('/exercise/'); 
       } else {
         const errorData = await response.json();
         setErrors(errorData.errors || { general: 'Something went wrong' }); 
@@ -84,13 +84,13 @@ const UpdateExerciseForm = () => {
   };
 
   const back = () => {
-    navigate('/exercise/user')
+    nav('/exercise/user')
   }
 
   return (
     <div className="update-exercise-form">
      <button className='back' onClick={back}>Back</button>
-      <form onSubmit={handleSubmit}>
+      <form className='updateform' onSubmit={handleSubmit}>
         <h2>Update Exercise</h2>
         <div>
           <label>Name</label>

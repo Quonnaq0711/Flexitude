@@ -15,13 +15,12 @@ body {
 /* Navigation Bar */
 #navigation {
   display: flex;
-  /* position: fixed; */
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
   background-color: #2e0014ff; /* Dark background */
   color: white;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -42,9 +41,9 @@ body {
 
 /* Search Bar Container */
 #search-bar-container {
-  flex-grow: 1; /* Make search bar take available space */
+  /* flex-grow: 3; Make search bar take available space */
   width: 400px; /* Limit the width of the search bar */
-  margin: 0 0px; /*Add space between the search bar and profile button */
+  /* margin: 0 0px; Add space between the search bar and profile button */
 }
 
 .b5 {
@@ -66,14 +65,12 @@ body {
 #navigation div:last-child {
   display: flex;
   align-items: center;
-  /* margin-right: 50px; */
 
 }
 
 /* Profile Dropdown Button */
 #navigation button {
   display: flex;
-  align-items: center;
   background-color: #d88531ff; 
   color: whitesmoke;
   width: 100%;

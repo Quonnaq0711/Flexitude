@@ -10,7 +10,7 @@ const AddExerciseForm = () => {
   const currentUser = useSelector((state) => state.session.user.id);
 
   // Define dynamic muscle groups (can fetch from API if necessary)
-  const musclegroups = ['Arms', 'Shoulders', 'Chest', 'Abdominals', 'Butt/Legs',
+  const musclegroups = ['Arms', 'Shoulders', 'Chest', 'Abs', 'Butt','Legs',
     'Agility Drills', 'CrossFit', 'HIIT', 'Stretching',
     'Strength Training', 'Weightlifting', 'Bodyweight',
     'Other'
@@ -62,9 +62,9 @@ const AddExerciseForm = () => {
 
   
 
-  const random = () => {
-    alert('Feature Coming Soon...')
-}
+//   const random = () => {
+//     alert('Feature Coming Soon...')
+// }
 
   return (
     <>
@@ -78,7 +78,7 @@ const AddExerciseForm = () => {
                       <NavLink to={'/event/'} className='buttonlink'>
                           Events
                       </NavLink>
-                      <NavLink onClick={random} className='buttonlink1'>
+                      <NavLink to={'/workout/randomizer'} className='buttonlink'>
                           Randomizer
                       </NavLink>
                   </div>

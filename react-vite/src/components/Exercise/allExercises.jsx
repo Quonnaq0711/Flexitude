@@ -33,9 +33,9 @@ const ExerciseList = () => {
     navigate('/exercise/new')
   }
 
-  const random = () => {
-    alert('Feature Coming Soon...')
-}
+//   const random = () => {
+//     alert('Feature Coming Soon...')
+// }
 
   return (
     <div className='list'>
@@ -49,7 +49,7 @@ const ExerciseList = () => {
                 <NavLink to={'/event/'} className='Exbutton'>
                     Events
                 </NavLink>
-                <NavLink onClick={random} className='Exbutton'>
+                <NavLink to={'/workout/randomizer'} className='Exbutton'>
                     Randomizer
                 </NavLink>
             </div>

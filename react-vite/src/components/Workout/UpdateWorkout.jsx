@@ -8,7 +8,7 @@ const UpdateWorkoutForm = () => {
     title: '',
     description: '',
     exercise_type: '',
-    exercises: ['', '', '', '', '', ''], // Array for up to 6 exercises
+    exercises: ['', '', '', '', '', '', '', ''], // Array for up to 6 exercises
   });
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState('');
@@ -135,9 +135,9 @@ console.log('ID',workoutid)
 
   return (
       
-    <div className="update-workout-form">
+    <div >
       <button className='back' onClick={back}>Back</button>  
-      <form onSubmit={handleSubmit}>
+      <form  className='updateform' onSubmit={handleSubmit}>
         <div>
           <h2>Update Workout</h2>
           <label>Title</label>
@@ -181,12 +181,12 @@ console.log('ID',workoutid)
         </div>
 
         <div>
-          <label>Exercises (up to 6)</label>
+          <label>Exercises (up to 8)</label>
           {formData.exercises.map((exercise, index) => (
             <select
               key={index}
               name={`exercise-${index}`}
-              value={exercise}
+              value={formData.exercises}
               onChange={(e) => handleExerciseChange(e, index)}
             >
               <option value="">Select an exercise</option>

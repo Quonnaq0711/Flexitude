@@ -9,16 +9,17 @@ const AddWorkoutForm = () => {
     title: '',
     description: '',
     exercise_type: '',
-    exercises: ['', '', '', '', '', ''],
+    exercises: ['', '', '', '', '', '', '', ''],
   });
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const currentUser = useSelector((state) => state.session.user.id);
 
-  const exercise_types = [
-    'Abdominal Exercises', 'Agility Drills', 'CrossFit', 'HIIT', 'Stretching', 
-    'Cardio', 'Strength Training', 'Weightlifting', 'Bodyweight', 'Other'
+  const exercise_types = ['Arms', 'Shoulders', 'Chest', 'Abs', 'Butt', 'Legs',
+    'Agility Drills', 'CrossFit', 'HIIT', 'Stretching',
+    'Strength Training', 'Weightlifting', 'Bodyweight',
+    'Other'
   ];
   
   useEffect(() => {
@@ -111,9 +112,6 @@ const AddWorkoutForm = () => {
     }
   };
 
-  const random = () => {
-    alert('Feature Coming Soon...')
-  }
 
   return (
     <>
@@ -128,7 +126,7 @@ const AddWorkoutForm = () => {
                       <NavLink to={'/event/'} className='buttonlink'>
                           Events
                       </NavLink>
-                      <NavLink onClick={random} className='buttonlink1'>
+                      <NavLink to={'/workout/randomizer'} className='buttonlink'>
                           Randomizer
                       </NavLink>
                   </div>
@@ -173,7 +171,7 @@ const AddWorkoutForm = () => {
         </div>
 
         <div>
-          <label>Exercises (up to 6)</label>
+          <label>Exercises (up to 8)</label>
           {form.exercises.map((exercise, index) => (
             <select
               key={index}

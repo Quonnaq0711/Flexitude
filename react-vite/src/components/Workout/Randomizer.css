@@ -1,0 +1,38 @@
+.RamLinks {
+  display: flex;
+  margin-top: 150;
+  justify-content: center;
+  gap: 20px;
+}
+
+.wd2 {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #2e0014ff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+form {
+    max-width: 600px;
+    margin-top: 50px;
+    justify-self: center;
+    align-self: center;
+    margin-bottom: 15px;
+    padding: 20px;
+    background-color: #2e0014ff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+h3, span, .p2 {
+    color: blanchedalmond;
+  }
+
+button {
+  width: fit-content;
+  margin-right: 10px;
+}
+  
+

@@ -136,7 +136,7 @@ const handleChange = (e) => {
     <>
       <button className='back' onClick={back1}>Back</button>
     <div className="update-event-form">
-      <form onSubmit={handleSubmit}>
+      <form  className='updateform' onSubmit={handleSubmit}>
         <h2>Update Event</h2>
         <div>
           <label>Title</label>

@@ -21,17 +21,13 @@ function Navigation() {
         </NavLink>
       </div>
       {/* Search Bar */}
-      <div id="search-bar-container">
+      <div>
         <SearchExercises />
         </div>
+        {/*Nav Buttons */}
         <div>
-          <button className="b5" onClick={home}>Home</button>
-        </div>
-      {/* <div>
-        <button onClick={addExercise}>Add Exercise</button>
-      </div> */}
-      <div>
-        <ProfileButton />
+          <button  onClick={home}>Home</button>
+          <ProfileButton />
       </div>
       </nav>
     </>

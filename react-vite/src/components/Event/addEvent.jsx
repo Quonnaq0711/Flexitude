@@ -122,7 +122,7 @@ const AddEventForm = () => {
                             <NavLink to={'/event/'} className='buttonlink'>
                                 Events
                             </NavLink>
-                            <NavLink onClick={random} className='buttonlink1'>
+                            <NavLink to={'/workout/randomizer'} className='buttonlink'>
                                 Randomizer
                             </NavLink>
                         </div>
