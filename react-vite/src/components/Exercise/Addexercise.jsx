@@ -10,7 +10,7 @@ const AddExerciseForm = () => {
   const currentUser = useSelector((state) => state.session.user.id);
 
   // Define dynamic muscle groups (can fetch from API if necessary)
-  const musclegroups = ['Arms', 'Shoulders', 'Chest', 'Abdominals', 'Butt/Legs',
+  const musclegroups = ['Arms', 'Shoulders', 'Chest', 'Abs', 'Butt','Legs',
     'Agility Drills', 'CrossFit', 'HIIT', 'Stretching',
     'Strength Training', 'Weightlifting', 'Bodyweight',
     'Other'

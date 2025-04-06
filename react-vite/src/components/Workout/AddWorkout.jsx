@@ -16,9 +16,10 @@ const AddWorkoutForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const currentUser = useSelector((state) => state.session.user.id);
 
-  const exercise_types = [
-    'Abdominal Exercises', 'Agility Drills', 'CrossFit', 'HIIT', 'Stretching', 
-    'Cardio', 'Strength Training', 'Weightlifting', 'Bodyweight', 'Other'
+  const exercise_types = ['Arms', 'Shoulders', 'Chest', 'Abs', 'Butt', 'Legs',
+    'Agility Drills', 'CrossFit', 'HIIT', 'Stretching',
+    'Strength Training', 'Weightlifting', 'Bodyweight',
+    'Other'
   ];
   
   useEffect(() => {
@@ -111,9 +112,6 @@ const AddWorkoutForm = () => {
     }
   };
 
-  // const random = () => {
-  //   alert('Feature Coming Soon...')
-  // }
 
   return (
     <>

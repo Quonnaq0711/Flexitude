@@ -15,7 +15,11 @@ const SearchBar = () => {
   const [showResults, setShowResults] = useState(false);
 
   // List of sample muscle groups for dropdown 
-  const muscleGroups = ['Chest', 'Cardio', 'Butt','Legs', 'Arms', 'Shoulders', 'Abs'];
+  const muscleGroups = ['Arms', 'Shoulders', 'Chest', 'Abs', 'Butt', 'Legs',
+    'Agility Drills', 'CrossFit', 'HIIT', 'Stretching',
+    'Strength Training', 'Weightlifting', 'Bodyweight',
+    'Other'
+  ];
 
   // Refs for the dropdown and results container
   const dropdownRef = useRef(null);

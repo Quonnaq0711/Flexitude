@@ -15,9 +15,10 @@ const RandomizerForm = () => {
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [numExercises, setNumExercises] = useState(8); // New state for number of exercises
   const currentUser = useSelector((state) => state.session.user.id);
 
-  const exercise_types = ['Arms', 'Shoulders', 'Chest', 'Abdominals', 'Butt', 'Legs',
+  const exercise_types = ['Arms', 'Shoulders', 'Chest', 'Abs', 'Butt', 'Legs',
     'Agility Drills', 'CrossFit', 'HIIT', 'Stretching',
     'Strength Training', 'Weightlifting', 'Bodyweight',
     'Other'
@@ -128,9 +129,9 @@ const RandomizerForm = () => {
       return;
     }
 
-    // Randomly select exercises up to 8
+    // Randomly select exercises up to the number selected by the user
     const selectedExercises = [];
-    const totalExercises = Math.min(8, filteredExercises.length);
+    const totalExercises = Math.min(numExercises, filteredExercises.length);
 
     while (selectedExercises.length < totalExercises) {
       const randomIndex = Math.floor(Math.random() * filteredExercises.length);
@@ -220,6 +221,22 @@ const RandomizerForm = () => {
               ))}
             </select>
           </div>
+
+          <div>
+            <label>Number of Exercises</label>
+            <select
+              name="numExercises"
+              value={numExercises}
+              onChange={(e) => setNumExercises(Number(e.target.value))}
+            >
+              {[...Array(8)].map((_, i) => (
+                <option key={i + 1} value={i + 1}>
+                  {i + 1}
+                </option>
+              ))}
+            </select>
+          </div>
+
           <button type="button" onClick={randomizeExercises}>
             Randomize Workout
           </button>
@@ -266,6 +283,7 @@ const RandomizerForm = () => {
 };
 
 export default RandomizerForm;
+
 
 
 

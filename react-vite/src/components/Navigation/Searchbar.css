@@ -118,11 +118,11 @@ body {
   border: 2px solid #996888ff;
   width: fit-content;
   list-style-type: square;
-  background-color: black;
+  background-color: blanchedalmond ;
 }
 
 .result-link {
-  color: blanchedalmond;
+  color: black ;
   text-decoration: none;
   width: fit-content;
   font-size: x-large;
