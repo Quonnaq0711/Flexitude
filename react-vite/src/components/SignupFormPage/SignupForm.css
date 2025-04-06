@@ -1,6 +1,14 @@
 .form {
-    margin-top: 180px;
-    margin-left: 400px;
+    max-width: 600px;
+    margin-top: 150px;
+    margin-left: 50px;
+    justify-self: center;
+    align-self: center;
+    margin-bottom: 15px;
+    padding: 20px;
+    background-color: #2e0014ff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .b4 {

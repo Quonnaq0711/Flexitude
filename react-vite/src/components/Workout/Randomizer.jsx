@@ -21,7 +21,7 @@ const RandomizerForm = () => {
     'Agility Drills', 'CrossFit', 'HIIT', 'Stretching',
     'Strength Training', 'Weightlifting', 'Bodyweight',
     'Other'
-   ];
+  ];
 
   useEffect(() => {
     const fetchExercises = async () => {
@@ -64,7 +64,7 @@ const RandomizerForm = () => {
     if (!form.title) formErrors.title = "Title is required";
     if (!form.description) formErrors.description = "Description is required";
     if (!form.exercise_type) formErrors.exercise_type = "Exercise type is required";
-   if (form.exercises.length === 0) formErrors.exercises = "No Exercises Available";
+    if (form.exercises.length === 0) formErrors.exercises = "No Exercises Available";
     return formErrors;
   };
 
@@ -102,7 +102,7 @@ const RandomizerForm = () => {
 
       if (data.message === 'Workout created successfully') {
         setMessage('Workout created successfully!');
-        navigate('/workout/'); // Redirect to workout list 
+        navigate('/workout/'); // Redirect to workout list
       } else {
         setErrors(data.errors || {});
       }
@@ -123,11 +123,16 @@ const RandomizerForm = () => {
       (exercise) => exercise.musclegroup === form.exercise_type
     );
 
+    if (filteredExercises.length === 0) {
+      setErrors({ exercise_type: 'No exercises available for this type' });
+      return;
+    }
+
     // Randomly select exercises up to 8
     const selectedExercises = [];
     const totalExercises = Math.min(8, filteredExercises.length);
 
-    while (selectedExercises.length <= totalExercises) {
+    while (selectedExercises.length < totalExercises) {
       const randomIndex = Math.floor(Math.random() * filteredExercises.length);
       const selectedExercise = filteredExercises[randomIndex];
       if (!selectedExercises.includes(selectedExercise.id)) {
@@ -141,22 +146,22 @@ const RandomizerForm = () => {
     }));
     setErrors({});
   };
-    
+
   const handleClear = (e) => {
-      e.preventDefault()
-        setForm((prevState) => ({
-            ...prevState,
-            exercises: ['', '', '', '', '', '', '', ''],
-        }));
-        setErrors({})
-    };
+    e.preventDefault();
+    setForm((prevState) => ({
+      ...prevState,
+      exercises: ['', '', '', '', '', '', '', ''],
+    }));
+    setErrors({});
+  };
 
   return (
-      <>
+    <>
       <div className="add-workout-form">
         <div className="RamLinks">
           <NavLink to={'/exercise/'} className='buttonlink'>
-            Exercises  
+            Exercises
           </NavLink>
           <NavLink to={'/workout/'} className='buttonlink'>
             Workouts
@@ -168,15 +173,15 @@ const RandomizerForm = () => {
             Randomizer
           </NavLink>
         </div>
-            <div className='wd2'>
-                  <h3>Instructions</h3>
-                  <span>To create a new workout with randomly selected exercises, follow these steps:</span>
-                  <p className='p2'> 1. Select Exercise Type: Choose a workout category, such as Abdominal Exercises, Cardio, HIIT, or Strength Training. This will define the type of exercises you can include in your workout.</p>
-                  <p className='p2'> 2. Randomize Exercises: After selecting an exercise type, click the Randomizer button to automatically select random exercises from the chosen category. You can get up to 8 exercises randomly selected, ensuring variety and surprise in your workout.</p>
-                  <p className='p2'> 3. Customize Workout: The selected exercises will be automatically populated in your workout plan. You can tweak the number of exercises or choose from the available options.</p>
-                  <p className='p2'> 4. Save Your Workout: After finalizing the workout, click Save Workout to save your new routine. Your workout will be saved with a title, description, and the list of selected exercises.</p>
-            </div>
-            <form >
+        <div className='wd2'>
+          <h3>Instructions</h3>
+          <span>To create a new workout with randomly selected exercises, follow these steps:</span>
+          <p className='p2'>1. Select Exercise Type: Choose a workout category, such as Abdominal Exercises, Cardio, HIIT, or Strength Training. This will define the type of exercises you can include in your workout.</p>
+          <p className='p2'>2. Randomize Exercises: After selecting an exercise type, click the Randomizer button to automatically select random exercises from the chosen category. You can get up to 8 exercises randomly selected, ensuring variety and surprise in your workout.</p>
+          <p className='p2'>3. Customize Workout: The selected exercises will be automatically populated in your workout plan. You can tweak the number of exercises or choose from the available options.</p>
+          <p className='p2'>4. Save Your Workout: After finalizing the workout, click Save Workout to save your new routine. Your workout will be saved with a title, description, and the list of selected exercises.</p>
+        </div>
+        <form onSubmit={handleSubmit}>
           <h2>Create a New Randomized Workout</h2>
           <div>
             <label>Title</label>
@@ -214,8 +219,10 @@ const RandomizerForm = () => {
                 </option>
               ))}
             </select>
-                  </div>
-                  <button onClick={randomizeExercises}>Randomize Workout</button>
+          </div>
+          <button type="button" onClick={randomizeExercises}>
+            Randomize Workout
+          </button>
 
           <div>
             <label>Exercises</label>
@@ -245,12 +252,12 @@ const RandomizerForm = () => {
             </div>
           )}
 
-                  {message && <p className="success">{message}</p>}
-                  
-                  <button className='clear-btn' onClick={handleClear}>Clear</button>
+          {message && <p className="success">{message}</p>}
 
-          <button type="button" onClick={handleSubmit} disabled={isSubmitting}>
-           Save Workout
+          <button className='clear-btn' onClick={handleClear}>Clear</button>
+
+          <button type="submit" disabled={isSubmitting}>
+            Save Workout
           </button>
         </form>
       </div>
@@ -259,6 +266,7 @@ const RandomizerForm = () => {
 };
 
 export default RandomizerForm;
+
 
 
 
