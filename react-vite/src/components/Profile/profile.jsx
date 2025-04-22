@@ -11,10 +11,6 @@ function Profile() {
         return <Navigate to="/login" />;
     }
 
-    // const random = () => {
-    //     alert('Feature Coming Soon...')
-    // }
-
     return (
         <div className="ProfilePage">
             <div className="user-info-container">
@@ -59,8 +55,8 @@ function Profile() {
                 <NavLink className='button' to='/event/user'> Your Events</NavLink>
             </div>
 
-            {/* Comments
-            <div className="manage-container">
+            {/* Comments */}
+            {/* <div className="manage-container">
                 <h2>Comments</h2>
                 <NavLink className='button' to='/comment/user'> Your Comments</NavLink>
             </div> */}

@@ -106,10 +106,6 @@ const AddEventForm = () => {
       });
   };
 
-  const random = () => {
-    alert('Feature Coming Soon...')
-  }
-
   return (
     <>
       <div className="Links">
