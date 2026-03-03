@@ -40,19 +40,19 @@ function Profile() {
             {/* Exercises */}
             <div className="manage-container">
                 <h2>Exercises</h2>
-               <NavLink className='button' to='/exercise/user'> Your Exercises</NavLink>
+               <NavLink className='button' to='/exercise/user'>Your Exercises</NavLink>
             </div>
 
             {/* Workouts */}
             <div className="manage-container">
                 <h2>Workouts</h2>
-                <NavLink className='button' to='/workout/user'> Your Workouts</NavLink>
+                <NavLink className='button' to='/workout/user'>Your Workouts</NavLink>
             </div>
 
             {/* Events */}
             <div className="manage-container">
                 <h2>Events</h2>
-                <NavLink className='button' to='/event/user'> Your Events</NavLink>
+                <NavLink className='button' to='/event/user'>Your Events</NavLink>
             </div>
 
             {/* Comments */}
