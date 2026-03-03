@@ -58,17 +58,15 @@ const WorkoutList = () => {
       <h1 className='h1'>Workout List</h1>
       <button className='b2' onClick={AddWorkout}>Add Workout</button>
       <ul>
-        {workouts.map(workout => (
-          <div key={workout.id} className='div1' >
-            <h2 className='h2'>{workout.title}</h2>
-            <p className='p'>{workout.description}</p>
-            <ul className='ul'>
-              {workout.exercises.map(exercise => (
-                <li key={exercise.id}>
-                  {exercise.name} - {exercise.reps} reps x {exercise.sets} sets
-                </li>
-              ))}
-            </ul>
+  {workouts.map(workout => (
+    <div key={workout.id} className='div1'>
+      <h2 className='h2'>{workout.title}</h2>
+      <p className='p'>{workout.description}</p>
+      <ul>
+        {workout.exercises.map(exercise => (
+          <li key={exercise.id}>{exercise.name}</li>
+        ))}
+      </ul>            
             <NavLink to={`/workout/${workout.id}`} className="NavLink1">View Workout</NavLink>
           </div>
         ))}

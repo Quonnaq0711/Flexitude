@@ -96,8 +96,8 @@ def update_workout(workoutid):
 def delete_workout(workoutid):
     workout = Workout.query.get(workoutid)
 
-    if not workout:
-        return jsonify({'message': 'Workout not found'}), 404
+    # if not workout:
+    #     return jsonify({'message': 'Workout not found'}), 404
 
     if workout.userid != current_user.id:
         return jsonify({'message': 'Unauthorized: Deletion can\'t be completed'}), 403
@@ -116,4 +116,4 @@ def workout_by_user():
     if workouts:
          return jsonify({'workouts': [workout.to_dict() for workout in workouts]})
     else:
-        return jsonify({'message': 'No workouts found for this user.'}), 404
+        return jsonify({'workouts': [], 'message': 'No workouts found for this user.'}), 200
